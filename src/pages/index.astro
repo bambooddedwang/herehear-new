@@ -1,0 +1,1497 @@
+---
+
+---
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Here Hear AI-EAP｜企業 AI 心理健康服務平台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Noto Sans TC','Inter',system-ui,sans-serif;color:#111827;background:#fff;line-height:1.7;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;transition:all .25s;}
+button{cursor:pointer;border:none;font-family:inherit;}
+
+:root{
+  --blue:#2563EB;--blue-light:#60A5FA;--blue-dark:#1D4ED8;--blue-bg:#EFF6FF;
+  --green:#059669;--green-light:#34D399;--green-bg:#ECFDF5;
+  --amber:#D97706;--amber-bg:#FFFBEB;
+  --rose:#E11D48;--rose-bg:#FFF1F2;
+  --text:#111827;--text-2:#374151;--text-3:#6B7280;--text-4:#9CA3AF;
+  --bg:#FFFFFF;--bg-2:#F9FAFB;--bg-3:#F3F4F6;--bg-dark:#0F172A;
+  --border:#E5E7EB;--border-2:#F3F4F6;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.05);
+  --shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);
+  --shadow-md:0 4px 6px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.06);
+  --shadow-lg:0 10px 15px rgba(0,0,0,.07),0 4px 6px rgba(0,0,0,.05);
+  --shadow-xl:0 20px 25px rgba(0,0,0,.07),0 10px 10px rgba(0,0,0,.04);
+  --r:8px;--r-lg:16px;--r-xl:24px;--r-full:9999px;
+  --max-w:1160px;
+  --transition:all .2s ease;
+}
+
+
+/* ─── SVG ICONS ─── */
+.sol-icon svg,.sh-icon svg{display:block;}
+.sl-icon{display:inline-flex;align-items:center;flex-shrink:0;margin-top:1px;}
+.sl-icon svg{display:block;}
+.ev-icon svg{display:block;}
+.tech-icon{display:flex;justify-content:center;margin-bottom:14px;}
+.tech-icon svg{display:block;}
+.scene-icon{display:flex;justify-content:center;margin-bottom:8px;}
+.scene-icon svg{display:block;}
+.kiosk-visual{display:flex;justify-content:center;align-items:center;padding:32px;background:var(--green-bg);border-radius:var(--r-xl);}
+.addon-icon{display:flex;justify-content:center;margin-bottom:5px;}
+.pain-icon-bad{display:flex;align-items:center;justify-content:center;}
+.pain-icon-bad svg{display:block;}
+.badge svg{display:inline-block;vertical-align:middle;margin-right:2px;}
+.flow-tab svg{display:inline-block;vertical-align:middle;}
+
+/* ─── UTILS ─── */
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
+.section{padding:96px 0;}
+.section-sm{padding:64px 0;}
+.text-center{text-align:center;}
+.overline{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);}
+.overline-white{color:rgba(255,255,255,.6);}
+
+/* ─── TYPOGRAPHY ─── */
+h1,.h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:900;line-height:1.15;letter-spacing:-.03em;color:var(--text);}
+h2,.h2{font-size:clamp(1.6rem,3.5vw,2.25rem);font-weight:800;line-height:1.2;letter-spacing:-.02em;color:var(--text);}
+h3,.h3{font-size:1.2rem;font-weight:700;line-height:1.35;}
+h4,.h4{font-size:1rem;font-weight:700;line-height:1.4;}
+.lead{font-size:1.1rem;color:var(--text-3);line-height:1.75;}
+.sm{font-size:.85rem;color:var(--text-3);line-height:1.65;}
+
+/* ─── BUTTONS ─── */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:11px 24px;border-radius:var(--r);font-size:.9rem;font-weight:600;transition:var(--transition);letter-spacing:.01em;border:1.5px solid transparent;}
+.btn-primary{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 1px 3px rgba(37,99,235,.3),0 0 0 0 rgba(37,99,235,.15);}
+.btn-primary:hover{background:var(--blue-dark);border-color:var(--blue-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,99,235,.4);}
+.btn-secondary{background:#fff;color:var(--blue);border-color:var(--border);box-shadow:var(--shadow-sm);}
+.btn-secondary:hover{border-color:var(--blue);background:var(--blue-bg);}
+.btn-dark{background:var(--bg-dark);color:#fff;border-color:var(--bg-dark);}
+.btn-dark:hover{background:#1e293b;}
+.btn-green{background:var(--green);color:#fff;border-color:var(--green);}
+.btn-green:hover{background:#047857;transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--blue);border-color:transparent;padding:11px 16px;}
+.btn-ghost:hover{background:var(--blue-bg);}
+.btn-lg{padding:15px 32px;font-size:1rem;}
+.btn-sm{padding:7px 16px;font-size:.82rem;}
+.btn-full{width:100%;justify-content:center;}
+
+/* ─── TAGS ─── */
+.tag{display:inline-flex;align-items:center;gap:3px;padding:3px 10px;border-radius:var(--r-full);font-size:.72rem;font-weight:700;}
+.tag-blue{background:var(--blue-bg);color:var(--blue);}
+.tag-green{background:var(--green-bg);color:var(--green);}
+.tag-amber{background:var(--amber-bg);color:var(--amber);}
+.tag-rose{background:var(--rose-bg);color:var(--rose);}
+.tag-gray{background:var(--bg-3);color:var(--text-3);}
+
+/* ─── BADGE ─── */
+.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:var(--r-full);font-size:.8rem;font-weight:600;border:1.5px solid;}
+.badge-blue{background:var(--blue-bg);color:var(--blue);border-color:rgba(37,99,235,.2);}
+.badge-green{background:var(--green-bg);color:var(--green);border-color:rgba(5,150,105,.2);}
+.badge-amber{background:var(--amber-bg);color:var(--amber);border-color:rgba(217,119,6,.2);}
+
+/* ─── NAV ─── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(229,231,235,.8);transition:var(--transition);}
+.nav.scrolled{box-shadow:0 1px 12px rgba(0,0,0,.08);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:var(--max-w);margin:0 auto;padding:0 24px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
+.logo-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;}
+.logo-icon img{width:40px;height:40px;object-fit:cover;border-radius:10px;}
+.logo-text{font-size:1.55rem;font-weight:800;letter-spacing:-.02em;line-height:1;}
+.logo-text .brand-purple{color:#7B3FE4;}
+.logo-text .brand-green{color:#4CAF50;}
+.footer .logo-text .brand-purple{color:#C4B5FD;}
+.footer .logo-text .brand-green{color:#81C784;}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-links a{padding:7px 13px;font-size:.85rem;font-weight:500;color:var(--text-3);border-radius:var(--r);transition:var(--transition);}
+.nav-links a:hover,.nav-links a.active{color:var(--blue);background:var(--blue-bg);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.login-link{font-size:.85rem;font-weight:500;color:var(--text-3);padding:7px 12px;border-radius:var(--r);transition:var(--transition);}
+.login-link:hover{color:var(--blue);background:var(--bg-2);}
+.mobile-toggle{display:none;background:none;padding:6px;border-radius:var(--r);}
+.mobile-toggle span{display:block;width:20px;height:2px;background:var(--text-3);margin:4px 0;transition:var(--transition);}
+.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:8px 16px 16px;z-index:999;box-shadow:var(--shadow-lg);}
+.mobile-nav.open{display:block;}
+.mobile-nav a{display:block;padding:11px 12px;font-size:.95rem;color:var(--text-2);border-radius:var(--r);transition:var(--transition);}
+.mobile-nav a:hover{background:var(--bg-2);color:var(--blue);}
+@media(max-width:900px){.nav-links{display:none;}.mobile-toggle{display:block;}}
+@media(max-width:600px){.nav-right .btn{display:none;}}
+
+/* ─── PAGE SYSTEM ─── */
+.page{display:none;padding-top:64px;}
+.page.active{display:block;}
+
+/* ─────────────────────────────────────────────
+   HOME PAGE
+───────────────────────────────────────────── */
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:80px 0 72px;background:linear-gradient(160deg,#EFF6FF 0%,#F5F3FF 40%,#fff 70%);}
+.hero::before{content:'';position:absolute;top:-120px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,.08) 0%,transparent 70%);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(124,58,237,.06) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
+.hero-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
+.hero-title{font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:900;line-height:1.12;letter-spacing:-.04em;color:var(--text);margin-bottom:20px;}
+.hero-title em{font-style:normal;background:linear-gradient(135deg,var(--blue),#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-desc{font-size:1.05rem;color:var(--text-3);line-height:1.8;margin-bottom:28px;max-width:480px;}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
+.hero-proof{display:flex;flex-wrap:wrap;gap:6px 16px;}
+.proof-item{display:flex;align-items:center;gap:5px;font-size:.8rem;font-weight:600;color:var(--text-3);}
+.proof-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
+
+/* Hero Visual */
+.hero-visual{position:relative;}
+.hero-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);padding:24px;box-shadow:var(--shadow-xl);position:relative;overflow:hidden;}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),#7C3AED,var(--green));}
+.hc-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.hc-title{font-size:.78rem;font-weight:700;color:var(--text-3);}
+.hc-badge{font-size:.65rem;font-weight:700;background:var(--green-bg);color:var(--green);padding:3px 8px;border-radius:var(--r-full);}
+.journey-step{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border-radius:var(--r);margin-bottom:6px;transition:var(--transition);}
+.journey-step:hover{background:var(--bg-2);}
+.step-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;flex-shrink:0;margin-top:1px;}
+.sn-blue{background:var(--blue);color:#fff;}
+.sn-purple{background:#7C3AED;color:#fff;}
+.sn-green{background:var(--green);color:#fff;}
+.step-label{font-size:.82rem;font-weight:700;color:var(--text);line-height:1.3;}
+.step-desc{font-size:.72rem;color:var(--text-3);margin-top:2px;}
+.connector{width:1px;height:14px;background:linear-gradient(180deg,var(--border),transparent);margin:0 0 0 24px;}
+
+/* Stats Banner */
+.stats-banner{background:linear-gradient(135deg,var(--bg-dark) 0%,#1e293b 100%);padding:48px 0;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center;}
+.stat-item{padding:0 24px;border-right:1px solid rgba(255,255,255,.1);}
+.stat-item:last-child{border:none;}
+.stat-num{font-size:2.4rem;font-weight:900;letter-spacing:-.04em;font-family:'Inter',sans-serif;background:linear-gradient(135deg,#fff,rgba(255,255,255,.7));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;}
+.stat-num span{font-size:1.3rem;}
+.stat-label{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:5px;font-weight:500;}
+.stat-src{font-size:.65rem;color:rgba(255,255,255,.25);margin-top:2px;}
+
+/* Pain Points */
+.pain-section{background:var(--bg-2);}
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px;}
+.pain-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:var(--transition);}
+.pain-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.pain-head{padding:16px 20px;border-bottom:1px solid var(--border-2);display:flex;align-items:center;gap:10px;}
+.pain-icon-bad{width:28px;height:28px;border-radius:7px;background:var(--rose-bg);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;}
+.pain-title{font-size:.88rem;font-weight:700;color:#B91C1C;}
+.pain-body{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.pain-col{padding:14px 18px;}
+.pain-col+.pain-col{border-left:1px solid var(--border-2);}
+.pain-sub{font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+.pain-sub.bad{color:#B91C1C;}
+.pain-sub.good{color:var(--green);}
+.pain-col p{font-size:.8rem;color:var(--text-3);line-height:1.65;}
+
+/* Solutions */
+.sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;}
+.sol-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r-xl);padding:28px;transition:var(--transition);cursor:pointer;display:flex;flex-direction:column;}
+.sol-card:hover{box-shadow:var(--shadow-xl);border-color:var(--blue);transform:translateY(-3px);}
+.sol-card-top{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.sol-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.sol-icon.blue{background:var(--blue-bg);}
+.sol-icon.green{background:var(--green-bg);}
+.sol-card h3{font-size:1.05rem;font-weight:800;margin-bottom:2px;}
+.sol-card p{font-size:.85rem;color:var(--text-3);line-height:1.65;margin-bottom:16px;flex:1;}
+.sol-features{list-style:none;margin-bottom:20px;}
+.sol-features li{font-size:.8rem;color:var(--text-2);padding:5px 0;border-bottom:1px solid var(--border-2);display:flex;align-items:center;gap:7px;}
+.sol-features li::before{content:'✓';color:var(--green);font-weight:700;font-size:.8rem;flex-shrink:0;}
+.sol-card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:16px;border-top:1px solid var(--border-2);}
+.sol-price{font-size:.82rem;color:var(--text-3);}
+.sol-price strong{font-size:1rem;color:var(--text);font-family:'Inter',sans-serif;}
+
+/* Dashboard */
+.dashboard-section{background:linear-gradient(160deg,var(--bg-dark) 0%,#0f172a 100%);padding:80px 0;overflow:hidden;}
+.dashboard-inner{display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:center;}
+.dash-left{}
+.dash-label{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;}
+.dash-title{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:900;color:#fff;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px;}
+.dash-desc{font-size:.92rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:24px;}
+.dash-items{display:flex;flex-direction:column;gap:10px;}
+.dash-item{display:flex;align-items:flex-start;gap:10px;font-size:.85rem;color:rgba(255,255,255,.7);}
+.dash-arrow{color:var(--amber);font-weight:700;margin-top:1px;flex-shrink:0;}
+.dash-item strong{color:#fff;}
+.dash-mockup{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-xl);padding:20px;backdrop-filter:blur(8px);}
+.mock-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08);}
+.mock-title{font-size:.75rem;font-weight:700;color:rgba(255,255,255,.4);}
+.mock-badge{font-size:.6rem;font-weight:700;padding:2px 8px;border-radius:var(--r-full);background:rgba(255,255,255,.08);color:rgba(255,255,255,.3);}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;}
+.kpi-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:10px;text-align:center;}
+.kpi-num{font-size:1.2rem;font-weight:800;font-family:'Inter',sans-serif;line-height:1.1;}
+.kpi-label{font-size:.6rem;color:rgba(255,255,255,.3);margin-top:3px;}
+.chart-row{display:grid;grid-template-columns:1.3fr 1fr;gap:10px;}
+.chart-box{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:12px;}
+.chart-title{font-size:.65rem;font-weight:600;color:rgba(255,255,255,.35);margin-bottom:9px;}
+.bar-item{display:flex;align-items:center;gap:7px;margin-bottom:6px;font-size:.65rem;color:rgba(255,255,255,.5);}
+.bar-label{width:46px;flex-shrink:0;}
+.bar-track{flex:1;height:7px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:4px;}
+.bar-val{width:26px;text-align:right;}
+.trend-bars{display:flex;align-items:flex-end;justify-content:center;gap:12px;height:72px;margin-top:6px;}
+.t-bar{text-align:center;}
+.t-bar-fill{width:22px;border-radius:3px 3px 0 0;}
+.t-bar-label{font-size:.55rem;color:rgba(255,255,255,.3);margin-top:4px;}
+.mock-footer{margin-top:10px;padding:8px 12px;background:rgba(255,255,255,.03);border-radius:7px;font-size:.62rem;color:rgba(255,255,255,.25);text-align:center;}
+
+/* Stakeholders */
+.stake-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;}
+.stake-card{border:1.5px solid var(--border);border-radius:var(--r-xl);overflow:hidden;transition:var(--transition);}
+.stake-card:hover{box-shadow:var(--shadow-lg);}
+.stake-head{padding:20px 24px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border-2);}
+.sh-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.sh-icon.emp{background:var(--blue-bg);}
+.sh-icon.hr{background:var(--green-bg);}
+.stake-body{padding:16px 24px;}
+.stake-list{list-style:none;}
+.stake-list li{display:flex;align-items:flex-start;gap:8px;padding:7px 0;border-bottom:1px solid var(--border-2);font-size:.83rem;color:var(--text-2);line-height:1.5;}
+.stake-list li:last-child{border:none;}
+.sl-icon{flex-shrink:0;margin-top:1px;}
+
+/* Clinical */
+.clinical-section{background:var(--bg-2);}
+.clinical-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:start;margin-top:48px;}
+.ev-cards{display:flex;flex-direction:column;gap:14px;}
+.ev-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;display:flex;gap:14px;transition:var(--transition);}
+.ev-card:hover{box-shadow:var(--shadow-md);}
+.ev-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;margin-top:2px;}
+.ev-icon.rose{background:var(--rose-bg);}
+.ev-icon.blue{background:var(--blue-bg);}
+.ev-icon.green{background:var(--green-bg);}
+.ev-text h4{font-size:.92rem;font-weight:700;margin-bottom:5px;}
+.ev-text p{font-size:.8rem;color:var(--text-3);line-height:1.65;}
+.clinical-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:sticky;top:80px;}
+.cl-stat{background:#fff;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:22px 20px;text-align:center;transition:var(--transition);}
+.cl-stat:hover{border-color:var(--blue);box-shadow:var(--shadow-md);}
+.cl-num{font-size:1.9rem;font-weight:900;font-family:'Inter',sans-serif;color:var(--blue);letter-spacing:-.04em;line-height:1.1;}
+.cl-label{font-size:.72rem;font-weight:600;color:var(--text-3);margin-top:5px;}
+.cl-patent{grid-column:1/-1;background:linear-gradient(135deg,var(--blue-bg),#ede9fe);border-color:rgba(37,99,235,.25);}
+.cl-patent .cl-num{background:linear-gradient(135deg,var(--blue),#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:2.6rem;}
+.cl-patent .cl-label{color:var(--blue);font-weight:700;font-size:.8rem;}
+
+/* Blog Preview */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px;}
+.blog-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r-xl);overflow:hidden;transition:var(--transition);cursor:pointer;}
+.blog-card:hover{box-shadow:var(--shadow-xl);border-color:var(--blue);transform:translateY(-3px);}
+.blog-thumb{height:100px;background:linear-gradient(135deg,var(--blue-bg),#ede9fe);display:flex;align-items:center;justify-content:center;gap:10px;font-size:2.5rem;position:relative;}
+.blog-thumb.green-bg{background:linear-gradient(135deg,var(--green-bg),#d1fae5);}
+.blog-thumb.amber-bg{background:linear-gradient(135deg,var(--amber-bg),#fde68a);}
+.bt-tag{position:absolute;top:10px;left:10px;}
+.blog-body{padding:16px 18px 20px;}
+.blog-body h3{font-size:.88rem;font-weight:700;line-height:1.45;margin-bottom:6px;color:var(--text);}
+.blog-body p{font-size:.75rem;color:var(--text-3);line-height:1.65;margin-bottom:10px;}
+.blog-meta{font-size:.68rem;color:var(--text-4);font-weight:500;}
+
+/* CTA Band */
+.cta-band{background:linear-gradient(135deg,var(--blue) 0%,#7C3AED 100%);padding:72px 0;text-align:center;position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;top:-50%;left:-10%;width:60%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 60%);pointer-events:none;}
+.cta-band h2{color:#fff;margin-bottom:10px;}
+.cta-band p{color:rgba(255,255,255,.7);font-size:.95rem;max-width:480px;margin:0 auto 28px;}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* Footer */
+.footer{background:var(--bg-dark);color:rgba(255,255,255,.6);padding:64px 0 0;}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08);}
+.footer-brand p{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.4);margin-top:14px;}
+.footer-col h4{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;}
+.footer-col a{display:block;font-size:.85rem;color:rgba(255,255,255,.5);padding:4px 0;transition:var(--transition);}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:.78rem;color:rgba(255,255,255,.25);flex-wrap:wrap;gap:8px;}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);z-index:2000;display:none;align-items:center;justify-content:center;padding:16px;}
+.modal-overlay.open{display:flex;}
+.modal{background:#fff;border-radius:var(--r-xl);padding:32px;max-width:420px;width:100%;box-shadow:var(--shadow-xl);position:relative;}
+.modal h3{font-size:1.2rem;font-weight:800;margin-bottom:6px;}
+.modal>p{font-size:.85rem;color:var(--text-3);margin-bottom:20px;}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--bg-2);border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;color:var(--text-3);transition:var(--transition);}
+.modal-close:hover{background:var(--bg-3);color:var(--text);}
+.modal-footer{text-align:center;font-size:.82rem;color:var(--text-3);margin-top:14px;}
+.modal-footer a{color:var(--blue);font-weight:600;}
+
+/* Form elements */
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:5px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r);font-size:.88rem;font-family:inherit;color:var(--text);background:#fff;transition:var(--transition);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08);}
+.form-group textarea{height:88px;resize:vertical;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-box{max-width:560px;margin:0 auto;background:#fff;border:1.5px solid var(--border);border-radius:var(--r-xl);padding:28px;box-shadow:var(--shadow);}
+
+/* FAQ */
+.faq-list{max-width:720px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{padding:16px 0;font-size:.9rem;font-weight:700;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none;}
+.faq-q:hover{color:var(--blue);}
+.faq-arrow{font-size:1.1rem;font-weight:400;color:var(--text-3);transition:var(--transition);flex-shrink:0;}
+.faq-a{display:none;padding:0 0 16px;font-size:.85rem;color:var(--text-3);line-height:1.75;}
+.faq-cat{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-4);padding:24px 0 8px;border-bottom:1px solid var(--border-2);}
+
+/* Service Flow */
+.flow-tabs{display:flex;gap:6px;background:var(--bg-2);border:1px solid var(--border);padding:4px;border-radius:10px;display:inline-flex;}
+.flow-tab{padding:8px 20px;border-radius:8px;font-size:.85rem;font-weight:600;color:var(--text-3);background:transparent;transition:var(--transition);}
+.flow-tab.active{background:#fff;color:var(--blue);box-shadow:var(--shadow);}
+.flow-panel{display:none;margin-top:28px;}
+.flow-panel.active{display:block;}
+.flow-timeline{max-width:680px;}
+.tl-item{display:flex;gap:16px;margin-bottom:6px;}
+.tl-dot{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;flex-shrink:0;margin-top:4px;}
+.tl-dot.blue{background:var(--blue);color:#fff;}
+.tl-dot.amber{background:var(--amber);color:#fff;}
+.tl-dot.green{background:var(--green);color:#fff;}
+.tl-connector{width:1px;height:24px;background:var(--border);margin:4px 0 4px 15px;}
+.tl-content{flex:1;padding:4px 0 24px;}
+.tl-content h4{font-size:.92rem;font-weight:700;margin-bottom:5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.tl-content p{font-size:.82rem;color:var(--text-3);line-height:1.65;margin-bottom:6px;}
+.tl-output{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;color:var(--blue);font-weight:600;background:var(--blue-bg);padding:4px 10px;border-radius:6px;}
+.tl-note{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;color:var(--amber);background:var(--amber-bg);padding:4px 10px;border-radius:6px;}
+
+/* Tech section */
+.tech-section{background:var(--bg-dark);}
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
+.tech-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-xl);padding:28px;transition:var(--transition);}
+.tech-card:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);}
+.tech-icon{font-size:2rem;margin-bottom:14px;}
+.tech-card h4{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;}
+.tech-card p{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.7;}
+
+/* Pricing */
+.pricing-hero{background:linear-gradient(160deg,var(--bg-2) 0%,#fff 100%);text-align:center;padding:72px 0 56px;}
+.pricing-badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.price-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r-xl);padding:24px;position:relative;transition:var(--transition);}
+.price-card:hover{box-shadow:var(--shadow-xl);}
+.price-card.popular{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue),var(--shadow-lg);}
+.price-popular-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:.72rem;font-weight:700;padding:3px 14px;border-radius:var(--r-full);white-space:nowrap;}
+.price-tier{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:2px;}
+.price-range{font-size:.82rem;color:var(--blue);font-weight:600;margin-bottom:14px;}
+.price-amount{font-size:2rem;font-weight:900;font-family:'Inter',sans-serif;color:var(--text);letter-spacing:-.04em;line-height:1;}
+.price-curr{font-size:1rem;font-weight:700;margin-right:1px;}
+.price-per{font-size:.8rem;font-weight:500;color:var(--text-3);}
+.price-monthly{font-size:.78rem;color:var(--text-3);margin-top:4px;}
+.price-unit{font-size:.7rem;color:var(--green);font-weight:600;margin-top:3px;}
+.price-divider{border:none;border-top:1px solid var(--border-2);margin:16px 0;}
+.price-features{list-style:none;margin-bottom:20px;}
+.price-features li{font-size:.8rem;color:var(--text-2);padding:6px 0;border-bottom:1px solid var(--border-2);display:flex;align-items:center;gap:7px;line-height:1.4;}
+.pf-yes{color:var(--green);font-weight:800;font-size:.85rem;}
+.pf-no{color:var(--text-4);font-size:.85rem;}
+.price-more{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.price-mini{background:#fff;border:1.5px solid var(--border);border-radius:var(--r-xl);padding:20px;transition:var(--transition);}
+.price-mini:hover{box-shadow:var(--shadow-md);}
+.pm-tier{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:2px;}
+.pm-range{font-size:.8rem;color:var(--blue);font-weight:600;margin-bottom:8px;}
+.pm-price{font-size:1.3rem;font-weight:900;font-family:'Inter',sans-serif;color:var(--text);letter-spacing:-.03em;}
+.pm-monthly{font-size:.75rem;color:var(--text-3);margin-top:3px;}
+.addons-box{background:var(--bg-2);border:1.5px solid var(--border);border-radius:var(--r-xl);padding:24px 28px;margin-bottom:16px;}
+.addons-title{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-4);margin-bottom:14px;}
+.addons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.addon-item{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:14px 12px;text-align:center;transition:var(--transition);}
+.addon-item:hover{border-color:var(--blue);box-shadow:var(--shadow-sm);}
+.addon-icon{font-size:1.2rem;margin-bottom:5px;}
+.addon-name{font-size:.78rem;font-weight:700;color:var(--text);}
+.addon-desc{font-size:.68rem;color:var(--text-3);margin-top:2px;line-height:1.4;}
+.enterprise-bar{background:linear-gradient(135deg,var(--bg-dark),#1e293b);border-radius:var(--r-xl);padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+.enterprise-bar h3{color:#fff;font-size:1.05rem;}
+.enterprise-bar p{font-size:.85rem;color:rgba(255,255,255,.5);margin-top:3px;}
+.ent-features{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;}
+.ent-feat{font-size:.75rem;font-weight:600;padding:3px 10px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);border-radius:var(--r-full);}
+.calc-box{max-width:520px;margin:28px auto 0;background:#fff;border:1.5px solid var(--border);border-radius:var(--r-xl);padding:28px;box-shadow:var(--shadow);}
+.calc-label{font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:10px;}
+.calc-slider{width:100%;accent-color:var(--blue);margin-bottom:6px;}
+.calc-range{display:flex;justify-content:space-between;font-size:.72rem;color:var(--text-3);margin-bottom:16px;}
+.calc-result{background:var(--blue-bg);border:1.5px solid rgba(37,99,235,.2);border-radius:var(--r-lg);padding:16px 20px;text-align:center;}
+.cr-plan{font-size:.78rem;font-weight:600;color:var(--blue);margin-bottom:4px;}
+.cr-amount{font-size:1.6rem;font-weight:900;font-family:'Inter',sans-serif;color:var(--text);letter-spacing:-.03em;}
+.cr-detail{font-size:.75rem;color:var(--text-3);margin-top:3px;}
+.compare-tip{background:linear-gradient(135deg,#fffbeb,#fff7ed);border:1px solid rgba(217,119,6,.25);border-radius:var(--r-lg);padding:18px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:28px;}
+
+/* Blog page */
+.blog-hero{background:linear-gradient(160deg,var(--bg-2),#fff);text-align:center;padding:72px 0 48px;}
+.filter-bar{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:18px;}
+.filter-btn{padding:6px 16px;font-size:.8rem;font-weight:600;border:1.5px solid var(--border);border-radius:var(--r-full);background:#fff;color:var(--text-3);cursor:pointer;transition:var(--transition);}
+.filter-btn.active,.filter-btn:hover{background:var(--blue);color:#fff;border-color:var(--blue);}
+.news-list{display:flex;flex-direction:column;gap:16px;margin-top:28px;}
+.news-item{background:#fff;border:1.5px solid var(--border);border-radius:var(--r-xl);padding:20px 24px;display:flex;gap:18px;transition:var(--transition);}
+.news-item:hover{box-shadow:var(--shadow-md);border-color:var(--blue);}
+.news-date{text-align:center;min-width:44px;}
+.nd-m{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-4);}
+.nd-d{font-size:1.8rem;font-weight:900;font-family:'Inter',sans-serif;color:var(--text);line-height:1;letter-spacing:-.05em;}
+.news-body h4{font-size:.9rem;font-weight:700;color:var(--text);margin:5px 0 6px;}
+.news-body p{font-size:.8rem;color:var(--text-3);line-height:1.6;}
+.newsletter-box{max-width:520px;margin:48px auto 0;text-align:center;background:var(--bg-2);border:1.5px solid var(--border);border-radius:var(--r-xl);padding:32px;}
+.nl-input-row{display:flex;gap:8px;margin-top:14px;}
+.nl-input-row input{flex:1;padding:10px 16px;border:1.5px solid var(--border);border-radius:var(--r);font-size:.88rem;}
+.nl-input-row input:focus{outline:none;border-color:var(--blue);}
+
+/* Kiosk page */
+.kiosk-visual{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--green-bg),#d1fae5);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden;}
+.kiosk-visual::after{content:'智慧心理支持站';position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:.75rem;font-weight:700;color:var(--green);}
+.scene-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.scene-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r-xl);padding:22px 18px;text-align:center;transition:var(--transition);}
+.scene-card:hover{box-shadow:var(--shadow-md);border-color:var(--green);}
+.scene-icon{font-size:2rem;margin-bottom:8px;}
+.rental-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:680px;margin:32px auto 0;}
+.rental-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:22px;text-align:center;}
+.rental-card .rental-icon{font-size:1.8rem;margin-bottom:8px;}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:36px;}
+  .hero-visual{order:-1;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .stat-item{border:none;padding:0;}
+  .dashboard-inner{grid-template-columns:1fr;gap:36px;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+}
+@media(max-width:768px){
+  .section{padding:64px 0;}
+  .pain-grid,.sol-grid,.stake-grid,.clinical-inner,.tech-grid,.price-grid,.price-more,.addons-grid{grid-template-columns:1fr;}
+  .pain-body{grid-template-columns:1fr;}
+  .pain-col+.pain-col{border-left:none;border-top:1px solid var(--border-2);}
+  .blog-grid{grid-template-columns:1fr 1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .clinical-stats{grid-template-columns:repeat(2,1fr);}
+  .enterprise-bar{flex-direction:column;align-items:flex-start;}
+  .footer-grid{grid-template-columns:1fr;}
+  .compare-tip{flex-direction:column;gap:12px;}
+  .kpi-row{grid-template-columns:repeat(2,1fr);}
+  .chart-row{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .blog-grid{grid-template-columns:1fr;}
+  .hero-actions{flex-direction:column;}
+  .hero-actions .btn{width:100%;justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="showPage('home')">
+      <span class="logo-text"><span class="brand-purple">HereHear</span><span class="brand-green">.AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home')" class="active" data-page="home">首頁</a>
+      <a href="#" onclick="showPage('product-saas')" data-page="product-saas">AI-EAP 服務</a>
+      <a href="#" onclick="showPage('product-kiosk')" data-page="product-kiosk">智慧心理支持站</a>
+      <a href="#" onclick="showPage('pricing')" data-page="pricing">方案與定價</a>
+      <a href="#" onclick="showPage('blog')" data-page="blog">產業觀點</a>
+      <a href="#" onclick="showPage('faq')" data-page="faq">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="login-link" onclick="openModal()">HR 登入</a>
+      <a href="#" class="btn btn-primary btn-sm" onclick="showPage('pricing')">免費試用</a>
+    </div>
+    <button class="mobile-toggle" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#" onclick="showPage('home');toggleMobile()">首頁</a>
+  <a href="#" onclick="showPage('product-saas');toggleMobile()">AI-EAP 服務</a>
+  <a href="#" onclick="showPage('product-kiosk');toggleMobile()">智慧心理支持站</a>
+  <a href="#" onclick="showPage('pricing');toggleMobile()">方案與定價</a>
+  <a href="#" onclick="showPage('blog');toggleMobile()">產業觀點</a>
+  <a href="#" onclick="showPage('faq');toggleMobile()">FAQ</a>
+  <a href="#" onclick="openModal();toggleMobile()">HR 登入</a>
+</div>
+
+<!-- ==================== HOME ==================== -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-eyebrow">
+            <span class="badge badge-blue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v4"/><path d="M14 8h-4"/><path d="M14 14h-4"/><path d="M14 18h-4"/><path d="M18 12h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h2"/><path d="M18 22V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v18"/></svg> 台北榮總臨床驗證</span>
+            <span class="badge badge-green"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="17" y2="21"/><line x1="8" x2="16" y1="21" y2="21"/><path d="M7 4H4a2 2 0 0 0-2 2v1a5 5 0 0 0 5 5"/><path d="M17 4h3a2 2 0 0 1 2 2v1a5 5 0 0 1-5 5"/><path d="M12 17a5 5 0 0 0 5-5V5a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7a5 5 0 0 0 5 5Z"/></svg> 國家新創獎</span>
+            <span class="badge badge-amber">🔬 3 項發明專利</span>
+          </div>
+          <h1 class="hero-title">員工不敢用的 EAP<br>不算 <em>EAP</em></h1>
+          <p class="hero-desc">傳統 EAP 員工怕被公司知道、使用率不到 3%、年底只拿到一份人數統計。Here Hear 不一樣——員工語音匿名對話，HR 每月收到看得懂的心理健康報表。固定年費，50 人企業一年只要 NT$18,000。</p>
+          <div class="hero-actions">
+            <a href="#" class="btn btn-primary btn-lg" onclick="showPage('pricing')">申請免費試用 →</a>
+            <a href="#" class="btn btn-secondary btn-lg" onclick="showPage('product-saas')">了解服務架構</a>
+          </div>
+          <div class="hero-proof">
+            <span class="proof-item"><span class="proof-dot"></span>台北榮總臨床驗證有效</span>
+            <span class="proof-item"><span class="proof-dot"></span>固定年費，用再多也不加錢</span>
+            <span class="proof-item"><span class="proof-dot"></span>北醫國際期刊發表</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hc-header">
+              <div class="hc-title">AI-EAP 完整服務旅程</div>
+              <div class="hc-badge">全匿名</div>
+            </div>
+            <div class="journey-step"><span class="step-num sn-blue">1</span><div><div class="step-label">匿名壓力評估</div><div class="step-desc">17 題量表 → 8 型壓力報告，不收集個資</div></div></div>
+            <div class="connector"></div>
+            <div class="journey-step"><span class="step-num sn-blue">2</span><div><div class="step-label">AI 療癒師「洋洋」語音對話</div><div class="step-desc">有結構的引導式對話 × 聲紋情緒辨識</div></div></div>
+            <div class="connector"></div>
+            <div class="journey-step"><span class="step-num sn-purple">3</span><div><div class="step-label">正念觀想 + 個人化洞察報告</div><div class="step-desc">情緒沉澱 → 後端分析 → 個人化報告</div></div></div>
+            <div class="connector"></div>
+            <div class="journey-step"><span class="step-num sn-green">4</span><div><div class="step-label">個人週報 Email</div><div class="step-desc">每 7 天 AI 生成精美個人化週報</div></div></div>
+            <div class="connector"></div>
+            <div class="journey-step"><span class="step-num sn-green">5</span><div><div class="step-label">HR 月報 → 季報 → ESG 年報</div><div class="step-desc">去識別化統計 · 壓力趨勢 · 可加購 ESG 格式</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BANNER -->
+  <div class="stats-banner">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-num">87<span>%</span></div>
+          <div class="stat-label">台灣員工承受中高度心理健康風險</div>
+          <div class="stat-src">Aon / 天下學習 2026 年亞太調查</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">&lt;20<span>%</span></div>
+          <div class="stat-label">台灣中小企業 EAP 覆蓋率</div>
+          <div class="stat-src">AI-EAP 2026 年亞太市場研究</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">&lt;3<span>%</span></div>
+          <div class="stat-label">傳統 EAP 員工實際使用率</div>
+          <div class="stat-src">台灣企業 EAP 調查報告</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">NT$50<span>/天</span></div>
+          <div class="stat-label">50 人以下企業 Here Hear 每日成本</div>
+          <div class="stat-src">NT$18,000/年 ÷ 365 天</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAIN POINTS -->
+  <section class="section pain-section">
+    <div class="container">
+      <div class="text-center">
+        <p class="overline">為什麼你現在的做法不夠</p>
+        <h2 class="h2" style="margin-top:8px;">四個 HR 不說但心裡都知道的問題</h2>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-head"><div class="pain-icon-bad"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></div><div class="pain-title">「員工根本不敢用」</div></div>
+          <div class="pain-body">
+            <div class="pain-col"><div class="pain-sub bad">傳統 EAP 的問題</div><p>要預約、要報名、要透露身份。員工怕被 HR 知道「有狀況」，使用率永遠不到 3%。花了錢等於沒花。</p></div>
+            <div class="pain-col"><div class="pain-sub good">Here Hear 怎麼解</div><p>員工用自己手機、匿名語音對話。不需預約、不用登記身份。<strong>公司完全看不到誰用了、說了什麼。</strong></p></div>
+          </div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-head"><div class="pain-icon-bad"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></div><div class="pain-title">「AI 聊天機器人怕出事」</div></div>
+          <div class="pain-body">
+            <div class="pain-col"><div class="pain-sub bad">一般 AI Chatbot 的風險</div><p>沒有臨床驗證、沒有心理學結構。萬一給錯建議、誤判情緒，誰負責？HR 根本不敢引進。</p></div>
+            <div class="pain-col"><div class="pain-sub good">Here Hear 怎麼解</div><p><strong>台北榮總隨機對照試驗驗證有效</strong>（中度憂鬱 12 週降至無症狀）。北醫合作國際期刊發表。高風險自動轉介真人心理師。</p></div>
+          </div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-head"><div class="pain-icon-bad"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></div><div class="pain-title">「花了錢，什麼數據都拿不到」</div></div>
+          <div class="pain-body">
+            <div class="pain-col"><div class="pain-sub bad">傳統 EAP 的報表</div><p>一年只拿到一份統計：幾個人用了、用了幾次。HR 拿不到任何能跟老闆報告的數據，更別說放進 ESG。</p></div>
+            <div class="pain-col"><div class="pain-sub good">Here Hear 怎麼解</div><p><strong>每月自動產出去識別化報表</strong>：壓力分佈、使用率趨勢、改善指標。季度重測追蹤效果。可加購 ESG 年報直接輸出。</p></div>
+          </div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-head"><div class="pain-icon-bad"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></div><div class="pain-title">「用越多花越多，根本不敢推」</div></div>
+          <div class="pain-body">
+            <div class="pain-col"><div class="pain-sub bad">傳統 EAP 的預算風險</div><p>按人頭按次計費，員工用越多費用越高。HR 反而不敢鼓勵員工使用，深怕超出預算被老闆質疑。</p></div>
+            <div class="pain-col"><div class="pain-sub good">Here Hear 怎麼解</div><p><strong>固定年費，不管員工用多少次都不加錢。</strong>50 人以下一年 NT$18,000。HR 可以放心推廣，預算 100% 可控。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <div class="text-center">
+        <p class="overline">產品方案</p>
+        <h2 class="h2" style="margin-top:8px;">兩種部署方式，同一套 AI 療癒核心</h2>
+        <p class="lead" style="max-width:560px;margin:8px auto 0;">無論雲端 SaaS 或實體設備，底層皆為通過臨床驗證的結構化語音互動 AI 引擎。</p>
+      </div>
+      <div class="sol-grid">
+        <div class="sol-card" onclick="showPage('product-saas')">
+          <div class="sol-card-top">
+            <div class="sol-icon blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div>
+            <div><span class="tag tag-blue">SaaS 雲端服務</span><h3 style="margin-top:4px;">AI-EAP 員工協助方案</h3></div>
+          </div>
+          <p>員工用手機語音跟 AI 療癒師「洋洋」對話。匿名、24/7、不用預約。HR 後台每月收到匿名統計報表。固定年費，用再多也不加錢。線上自助開通。</p>
+          <ul class="sol-features">
+            <li>壓力評估（17 題 → 8 型壓力報告）</li>
+            <li>AI 虛擬療癒師「洋洋」語音互動</li>
+            <li>正念觀想 + 個人化洞察報告</li>
+            <li>HR 去識別化月報表 + 季度重測</li>
+            <li>高風險自動轉介機制</li>
+          </ul>
+          <div class="sol-card-foot">
+            <div class="sol-price">NT$<strong>18,000</strong>/年起（≤50人）</div>
+            <span class="btn btn-primary btn-sm">了解更多 →</span>
+          </div>
+        </div>
+        <div class="sol-card" onclick="showPage('product-kiosk')">
+          <div class="sol-card-top">
+            <div class="sol-icon green"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></div>
+            <div><span class="tag tag-green">硬體 + 軟體授權</span><h3 style="margin-top:4px;">AI 智慧心理支持站</h3></div>
+          </div>
+          <p>實體互動設備，搭載語音 AI 療癒引擎。適用於辦公室、校園、公共部門、醫療機構等需要現場心理支持的場域。每台每月租賃計費。</p>
+          <ul class="sol-features">
+            <li>觸控 + 語音互動式硬體設備</li>
+            <li>適用多元場域（企業/校園/公部門）</li>
+            <li>含硬體、軟體授權、維護</li>
+            <li>多語言支持 · 政府採購相容</li>
+            <li>使用數據回傳 HR 月報獨立區塊</li>
+          </ul>
+          <div class="sol-card-foot">
+            <div class="sol-price">每台每月 <strong>洽詢報價</strong></div>
+            <span class="btn btn-green btn-sm">預約諮詢 →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HR DASHBOARD MOCKUP -->
+  <div class="dashboard-section">
+    <div class="container">
+      <div class="dashboard-inner">
+        <div class="dash-left">
+          <div class="dash-label">HR 每月收到什麼</div>
+          <h2 class="dash-title">不只是「幾個人用了」<br>而是一份能跟老闆報告的數據</h2>
+          <p class="dash-desc">傳統 EAP 年底給你一張紙：「23 人次使用」。然後呢？<br><br>Here Hear 每月自動產出完整去識別化報表——壓力分佈在哪裡、跟上個月比有沒有改善、員工最常談的議題是什麼。</p>
+          <div class="dash-items">
+            <div class="dash-item"><span class="dash-arrow">→</span><div><strong>月報</strong>：壓力類型分佈 × 使用率趨勢 × 議題熱點</div></div>
+            <div class="dash-item"><span class="dash-arrow">→</span><div><strong>季報</strong>：壓力重測 × 改善幅度 × 前後對比</div></div>
+            <div class="dash-item"><span class="dash-arrow">→</span><div><strong>年報</strong>（加購）：ESG 格式輸出 × 社會影響力量化</div></div>
+          </div>
+        </div>
+        <div class="dash-mockup">
+          <div class="mock-header">
+            <div class="mock-title">Here Hear · HR 月報表 · 2026年3月</div>
+            <span class="mock-badge">去識別化</span>
+          </div>
+          <div class="kpi-row">
+            <div class="kpi-box"><div class="kpi-num" style="color:#60A5FA;">68%</div><div class="kpi-label">本月使用率</div></div>
+            <div class="kpi-box"><div class="kpi-num" style="color:#34D399;">↓ 12%</div><div class="kpi-label">整體壓力指數</div></div>
+            <div class="kpi-box"><div class="kpi-num" style="color:#FCD34D;">4.2次</div><div class="kpi-label">人均對話次數</div></div>
+            <div class="kpi-box"><div class="kpi-num" style="color:#FCA5A5;">0</div><div class="kpi-label">高風險轉介</div></div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-box">
+              <div class="chart-title">壓力類型分佈（8 型）</div>
+              <div class="bar-item"><span class="bar-label">工作壓力</span><div class="bar-track"><div class="bar-fill" style="width:72%;background:#60A5FA;"></div></div><span class="bar-val">34%</span></div>
+              <div class="bar-item"><span class="bar-label">人際關係</span><div class="bar-track"><div class="bar-fill" style="width:48%;background:#FBBF24;"></div></div><span class="bar-val">22%</span></div>
+              <div class="bar-item"><span class="bar-label">自我期待</span><div class="bar-track"><div class="bar-fill" style="width:38%;background:#34D399;"></div></div><span class="bar-val">18%</span></div>
+              <div class="bar-item"><span class="bar-label">家庭照顧</span><div class="bar-track"><div class="bar-fill" style="width:26%;background:#C4B5FD;"></div></div><span class="bar-val">12%</span></div>
+              <div class="bar-item"><span class="bar-label">其他</span><div class="bar-track"><div class="bar-fill" style="width:30%;background:rgba(255,255,255,.2);"></div></div><span class="bar-val">14%</span></div>
+            </div>
+            <div class="chart-box">
+              <div class="chart-title">3 個月壓力趨勢</div>
+              <div class="trend-bars">
+                <div class="t-bar"><div class="t-bar-fill" style="height:60px;background:rgba(96,165,250,.45);"></div><div class="t-bar-label">1月</div></div>
+                <div class="t-bar"><div class="t-bar-fill" style="height:46px;background:rgba(96,165,250,.6);"></div><div class="t-bar-label">2月</div></div>
+                <div class="t-bar"><div class="t-bar-fill" style="height:30px;background:#059669;"></div><div class="t-bar-label">3月</div></div>
+              </div>
+              <div style="text-align:center;font-size:.62rem;color:#34D399;margin-top:6px;">↓ 壓力指數持續下降</div>
+            </div>
+          </div>
+          <div class="mock-footer">⚠️ 所有數據皆為去識別化匿名統計 · 任何維度 &lt;5 人自動隱藏（k-匿名保護）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAKEHOLDERS -->
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <div class="text-center">
+        <p class="overline">利害關係人價值</p>
+        <h2 class="h2" style="margin-top:8px;">為員工與 HR 各自創造的價值</h2>
+      </div>
+      <div class="stake-grid">
+        <div class="stake-card">
+          <div class="stake-head">
+            <div class="sh-icon emp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
+            <div><div class="h4">對員工</div><p class="sm" style="margin:2px 0 0;">匿名、低門檻、每日陪伴式心理支持</p></div>
+          </div>
+          <div class="stake-body">
+            <ul class="stake-list">
+              <li><span class="sl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span>用語音自然傾訴，不必打字、不怕被辨識身份</li>
+              <li><span class="sl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M9 2v2M15 20v2M9 20v2M2 15h2M2 9h2M20 15h2M20 9h2"/></svg></span>有結構的引導式對話，有目標地改善心理狀態</li>
+              <li><span class="sl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>24/7 可用，凌晨焦慮、午後崩潰都有人接住</li>
+              <li><span class="sl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></span>個人化壓力報告 + 每週成長週報</li>
+              <li><span class="sl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.937A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg></span>每日正念觀想，完整的情緒照護弧線</li>
+              <li><span class="sl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>高風險時 AI 自動轉介真人心理師</li>
+            </ul>
+          </div>
+        </div>
+        <div class="stake-card">
+          <div class="stake-head">
+            <div class="sh-icon hr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><line x1="10" x2="14" y1="11" y2="11"/><line x1="10" x2="14" y1="15" y2="15"/></svg></div>
+            <div><div class="h4">對 HR / 管理層</div><p class="sm" style="margin:2px 0 0;">零人力介入、數據可量化的 EAP 服務</p></div>
+          </div>
+          <div class="stake-body">
+            <ul class="stake-list">
+              <li><span class="sl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>去識別化月報表：使用率、壓力分佈、趨勢</li>
+              <li><span class="sl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span>每季自動壓力重測，追蹤改善效果</li>
+              <li><span class="sl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><line x1="10" x2="16" y1="13" y2="13"/><line x1="10" x2="14" y1="17" y2="17"/></svg></span>可加購 ESG 年報格式，直接放入永續報告</li>
+              <li><span class="sl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>k-匿名保護：任何維度 &lt;5 人自動隱藏</li>
+              <li><span class="sl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>自助開通，無需複雜採購流程</li>
+              <li><span class="sl-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>成本可控，NT$18,000/年起即可啟動</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLINICAL EVIDENCE -->
+  <section class="section clinical-section">
+    <div class="container">
+      <div class="text-center">
+        <p class="overline">臨床實證</p>
+        <h2 class="h2" style="margin-top:8px;">HR 最擔心的問題：「這東西真的有用嗎？」</h2>
+        <p class="lead" style="max-width:520px;margin:8px auto 0;">不是自己說有效——是通過醫學最高標準驗證、學術同行審查的科學證據。</p>
+      </div>
+      <div class="clinical-inner">
+        <div class="ev-cards">
+          <div class="ev-card">
+            <div class="ev-icon rose"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v4"/><path d="M14 8h-4"/><path d="M14 14h-4"/><path d="M14 18h-4"/><path d="M18 12h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h2"/><path d="M18 22V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v18"/></svg></div>
+            <div class="ev-text">
+              <h4>台北榮總臨床驗證：真的能改善</h4>
+              <p>台北榮總針對中度憂鬱的成人做了嚴格的隨機對照試驗（RCT），結果：連續使用 12 週後，症狀降到「無症狀」等級，且追蹤 12 週持續不復發。這是醫學最高標準的驗證方式。</p>
+            </div>
+          </div>
+          <div class="ev-card">
+            <div class="ev-icon blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg></div>
+            <div class="ev-text">
+              <h4>台北醫學大學 · 國際期刊發表</h4>
+              <p>與北醫合作研究 AI 語音情緒辨識的準確度，成果發表在 PLOS ONE 國際學術期刊。不是自己說有效，是通過學術同行審查的科學證據。</p>
+            </div>
+          </div>
+          <div class="ev-card">
+            <div class="ev-icon green"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></div>
+            <div class="ev-text">
+              <h4>語音比文字更能捕捉真實情緒</h4>
+              <p>語音能傳達文字傳達不了的情緒——語調、停頓、語速、音量，都是重要線索。洋洋透過語音互動，能更精準理解員工的真實感受，大幅降低 AI 誤判風險。</p>
+            </div>
+          </div>
+        </div>
+        <div class="clinical-stats">
+          <div class="cl-stat"><div class="cl-num">12週</div><div class="cl-label">中度憂鬱降至無症狀</div></div>
+          <div class="cl-stat"><div class="cl-num">12週+</div><div class="cl-label">持續不復發追蹤</div></div>
+          <div class="cl-stat"><div class="cl-num">RCT</div><div class="cl-label">醫學最高標準驗證</div></div>
+          <div class="cl-stat"><div class="cl-num">SCI</div><div class="cl-label">國際學術期刊認可</div></div>
+          <div class="cl-stat cl-patent"><div class="cl-num">3 項</div><div class="cl-label">國家發明專利</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG PREVIEW -->
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;margin-bottom:0;">
+        <div><p class="overline">產業觀點</p><h2 class="h2" style="margin-top:6px;">最新文章</h2></div>
+        <a href="#" class="btn btn-ghost btn-sm" onclick="showPage('blog')">查看全部 →</a>
+      </div>
+      <div class="blog-grid">
+        <div class="blog-card" onclick="showPage('blog')">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#dbeafe,#ede9fe);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg><span class="tag tag-blue bt-tag">數據報告</span></div>
+          <div class="blog-body"><h3>2026 台灣中小企業員工心理健康現況報告</h3><p>87% 台灣員工承受中高度心理健康風險，超過 80% 的企業員工目前沒有任何職場心理健康支持⋯⋯</p><div class="blog-meta">2026.04.01 · 8 min</div></div>
+        </div>
+        <div class="blog-card" onclick="showPage('blog')">
+          <div class="blog-thumb green-bg"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg><span class="tag tag-green bt-tag">產品知識</span></div>
+          <div class="blog-body"><h3>EAP 是什麼？AI EAP vs 傳統 EAP 完整比較</h3><p>EAP（員工協助方案）是由企業提供給員工的保密心理諮商與問題解決服務，但 AI-EAP 正在徹底改變這個定義⋯⋯</p><div class="blog-meta">2026.03.25 · 12 min</div></div>
+        </div>
+        <div class="blog-card" onclick="showPage('blog')">
+          <div class="blog-thumb amber-bg"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span class="tag tag-amber bt-tag">經營觀點</span></div>
+          <div class="blog-body"><h3>企業不重視員工心理健康的隱性成本</h3><p>當一位月薪 4.5 萬的員工離職，企業實際損失可能高達 27 至 40 萬台幣——而心理健康是離職第二大原因⋯⋯</p><div class="blog-meta">2026.03.18 · 10 min</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="container">
+      <h2>準備為企業導入 AI-EAP？</h2>
+      <p>一個月免費試用 · 線上自助開通 · NT$18,000/年起</p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-lg" style="background:#fff;color:var(--blue);" onclick="showPage('pricing')">查看方案與定價</a>
+        <a href="#" class="btn btn-lg" style="border:1.5px solid rgba(255,255,255,.4);color:#fff;" onclick="showPage('product-kiosk')">洽詢智慧心理支持站</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end home -->
+
+<!-- ==================== AI-EAP SERVICE PAGE ==================== -->
+<div class="page" id="page-product-saas">
+
+  <section class="hero" style="background:linear-gradient(160deg,var(--blue-bg) 0%,#ede9fe 40%,#fff 70%);">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <p class="overline" style="margin-bottom:12px;">AI-EAP SaaS 服務</p>
+          <h1 class="h1" style="margin-bottom:16px;">從壓力評估到個人週報<br>完整的員工心理健康閉環</h1>
+          <p class="lead" style="margin-bottom:24px;">員工掃碼就能匿名做壓力評估，每天跟 AI 療癒師用語音聊聊，系統自動產出個人化洞察報告。HR 端每月收到完整的匿名統計報表——壓力分佈、使用趨勢、改善指標。</p>
+          <div class="hero-actions">
+            <a href="#" class="btn btn-primary btn-lg" onclick="showPage('pricing')">申請免費試用 →</a>
+            <a href="#" class="btn btn-secondary btn-lg" onclick="document.getElementById('full-flow').scrollIntoView({behavior:'smooth'})">查看完整服務流程 ↓</a>
+          </div>
+        </div>
+        <div>
+          <div style="background:#fff;border:1.5px solid var(--border);border-radius:var(--r-xl);padding:24px;box-shadow:var(--shadow-xl);">
+            <div style="font-size:.75rem;font-weight:700;color:var(--text-3);margin-bottom:14px;letter-spacing:.05em;">雙軌架構設計</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div style="background:var(--blue-bg);border:1px solid rgba(37,99,235,.15);border-radius:var(--r-lg);padding:16px;">
+                <div style="font-size:.68rem;font-weight:700;color:var(--blue);margin-bottom:8px;">軌道 A · 對話收集</div>
+                <div style="font-size:.78rem;color:var(--text-3);line-height:1.6;">AI 療癒師「洋洋」<br>語音引導對話<br>目的：讓員工「說出來」</div>
+                <div style="margin-top:8px;font-size:.7rem;font-weight:600;color:var(--blue);">產出 → 原始語音</div>
+              </div>
+              <div style="background:var(--green-bg);border:1px solid rgba(5,150,105,.15);border-radius:var(--r-lg);padding:16px;">
+                <div style="font-size:.68rem;font-weight:700;color:var(--green);margin-bottom:8px;">軌道 B · 後端分析</div>
+                <div style="font-size:.78rem;color:var(--text-3);line-height:1.6;">非同步結構化分析<br>聲紋 × 語意分析<br>目的：產出個人化報告</div>
+                <div style="margin-top:8px;font-size:.7rem;font-weight:600;color:var(--green);">產出 → 個人化報告</div>
+              </div>
+            </div>
+            <div style="margin-top:12px;padding:9px 14px;background:var(--bg-2);border-radius:var(--r);font-size:.72rem;color:var(--text-3);text-align:center;">
+              對話中洋洋 100% 專注傾聽 · 分析在觀想時間非同步完成
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL SERVICE FLOW -->
+  <section class="section" style="background:var(--bg-2);" id="full-flow">
+    <div class="container">
+      <div class="text-center">
+        <p class="overline">完整服務流程</p>
+        <h2 class="h2" style="margin-top:8px;">員工使用者旅程 × 系統產出</h2>
+      </div>
+      <div style="margin-top:28px;display:flex;justify-content:center;">
+        <div class="flow-tabs">
+          <button class="flow-tab active" onclick="switchFlow('employee',this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg> 員工旅程</button>
+          <button class="flow-tab" onclick="switchFlow('hr',this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg> HR / 管理端</button>
+        </div>
+      </div>
+      <div class="flow-panel active" id="flow-employee">
+        <div class="flow-timeline">
+          <div class="tl-item"><div class="tl-dot blue">0</div><div class="tl-content"><h4>觸達 <span class="tag tag-gray" style="font-size:.65rem;">渠道入口</span></h4><p>HR 內部信、QR code 或合作夥伴連結。員工掃碼即進入壓力評估頁面。</p><div class="tl-output">📤 帶渠道追蹤標記的評估頁面</div></div></div>
+          <div class="tl-connector"></div>
+          <div class="tl-item"><div class="tl-dot blue">1</div><div class="tl-content"><h4>壓力評估 <span class="tag tag-blue" style="font-size:.65rem;">匿名</span></h4><p>完成 17 題匿名量表，系統即時產出壓力類型報告（8 種壓力型態）。不收集個資，僅以匿名 ID 儲存。</p><div class="tl-output">📤 個人壓力類型報告（A-H 型）</div></div></div>
+          <div class="tl-connector"></div>
+          <div class="tl-item"><div class="tl-dot blue">2</div><div class="tl-content"><h4>導入 App <span class="tag tag-gray" style="font-size:.65rem;">Onboarding</span></h4><p>報告頁面引導下載 App、建立 Profile。壓力評估結果作為首次對話的起點。</p></div></div>
+          <div class="tl-connector"></div>
+          <div class="tl-item"><div class="tl-dot amber">3</div><div class="tl-content"><h4>每日語音對話 <span class="tag tag-amber" style="font-size:.65rem;">核心體驗</span></h4><p>與 AI 虛擬療癒師「洋洋」進行 5-8 分鐘語音互動。AI 以有結構的引導式對話，搭配聲紋情緒辨識，逐步深入了解員工的真實感受。</p><div class="tl-output">📤 使用者原始語音 + 聲紋數據</div></div></div>
+          <div class="tl-connector"></div>
+          <div class="tl-item"><div class="tl-dot amber">4</div><div class="tl-content"><h4>正念觀想 <span class="tag tag-gray" style="font-size:.65rem;">2-3 分鐘</span></h4><p>對話結束後進入引導式觀想，讓情緒從傾訴的激盪中沉澱。觀想期間，後端同步完成語音轉錄與分析。</p><div class="tl-note" style="margin-top:6px;">💡 體驗弧線：傾訴（激盪）→ 被接住（安心）→ 觀想（沉澱）→ 看見自己（報告）</div></div></div>
+          <div class="tl-connector"></div>
+          <div class="tl-item"><div class="tl-dot green">5</div><div class="tl-content"><h4>個人化洞察報告 <span class="tag tag-green" style="font-size:.65rem;">分析產出</span></h4><p>觀想結束後，系統完成對話分析，AI 生成個人化洞察報告，讓員工看見自己本次的情緒狀態與改善方向，體驗到「被看見」的感受。</p><div class="tl-output">📤 Session 個人化洞察報告</div></div></div>
+          <div class="tl-connector"></div>
+          <div class="tl-item"><div class="tl-dot green">6</div><div class="tl-content"><h4>個人週報 Email <span class="tag tag-gray" style="font-size:.65rem;">每 7 天</span></h4><p>每 7 天自動彙整所有 Session，AI 生成個人化週報 Email，僅發送至員工本人信箱。</p></div></div>
+          <div class="tl-connector"></div>
+          <div class="tl-item"><div class="tl-dot green">7</div><div class="tl-content"><h4>季度壓力重測 <span class="tag tag-gray" style="font-size:.65rem;">每 90 天</span></h4><p>每季系統提醒重新完成壓力評估，量化追蹤改善趨勢。</p></div></div>
+        </div>
+      </div>
+      <div class="flow-panel" id="flow-hr">
+        <div class="flow-timeline">
+          <div class="tl-item"><div class="tl-dot green">1</div><div class="tl-content"><h4>月報表 <span class="tag tag-green" style="font-size:.65rem;">每月自動生成</span></h4><p>去識別化匿名統計：整體使用率、壓力類型分佈、趨勢變化。任何維度低於 5 人自動隱藏（k-匿名原則）。</p><div class="tl-output">📤 HR Dashboard + PDF 月報</div></div></div>
+          <div class="tl-connector"></div>
+          <div class="tl-item"><div class="tl-dot green">2</div><div class="tl-content"><h4>HR 衛教推播 <span class="tag tag-gray" style="font-size:.65rem;">定期</span></h4><p>定期推送心理健康管理知識給 HR，協助建立組織心理健康文化。附帶 App 推廣連結提升使用率。</p></div></div>
+          <div class="tl-connector"></div>
+          <div class="tl-item"><div class="tl-dot green">3</div><div class="tl-content"><h4>季度趨勢報告 <span class="tag tag-gray" style="font-size:.65rem;">每季</span></h4><p>彙整月報數據，呈現壓力趨勢、使用率變化、改善指標。群體層級分析，不追蹤個人。</p></div></div>
+          <div class="tl-connector"></div>
+          <div class="tl-item"><div class="tl-dot amber">4</div><div class="tl-content"><h4>ESG 年報 <span class="tag tag-amber" style="font-size:.65rem;">加購功能</span></h4><p>全年統計 + ESG 揭露格式報告，可直接放入企業永續報告書。量化心理健康投資的社會影響力。</p><div class="tl-output">📤 ESG 格式年度報告</div></div></div>
+          <div class="tl-connector"></div>
+          <div class="tl-item"><div class="tl-dot blue">5</div><div class="tl-content"><h4>高風險自動轉介 <span class="tag tag-blue" style="font-size:.65rem;">即時</span></h4><p>系統偵測到高風險語音信號時，即時觸發轉介機制，連結真人專業心理師。HR 收到匿名化的通知。</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH -->
+  <section class="section tech-section">
+    <div class="container">
+      <div class="text-center">
+        <p class="overline overline-white">核心技術</p>
+        <h2 class="h2" style="color:#fff;margin-top:8px;">三大技術支柱</h2>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card"><div class="tech-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M9 2v2M15 20v2M9 20v2M2 15h2M2 9h2M20 15h2M20 9h2"/></svg></div><h4>有結構的引導式對話</h4><p>不是閒聊。每次對話有明確的心理學結構，層層引導員工從表面壓力深入到真正困擾的核心。這個結構經過台北榮總臨床驗證有效。</p></div>
+        <div class="tech-card"><div class="tech-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></div><h4>語音比文字更真實</h4><p>語音互動不只更自然、門檻更低，系統還能從語調、語速、停頓中分析真實情緒狀態。比純文字聊天更準確，也更不容易誤判。</p></div>
+        <div class="tech-card"><div class="tech-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h4>聊天歸聊天，分析歸分析</h4><p>洋洋在對話時 100% 專注傾聽，不會邊聊邊分析。對話結束後有一段正念觀想時間，這段時間系統在背後完成分析、生成報告。體驗完整不中斷。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="container">
+      <h2>開始為你的團隊導入 AI-EAP</h2>
+      <p>線上自助申請 · 一個月免費試用 · 50 人以下 NT$18,000/年</p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-lg" style="background:#fff;color:var(--blue);" onclick="showPage('pricing')">查看定價方案 →</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end product-saas -->
+
+<!-- ==================== KIOSK PAGE ==================== -->
+<div class="page" id="page-product-kiosk">
+
+  <section class="hero" style="background:linear-gradient(160deg,var(--green-bg) 0%,#d1fae5 40%,#fff 70%);">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <p class="overline" style="color:var(--green);margin-bottom:12px;">AI 智慧心理支持站</p>
+          <h1 class="h1" style="margin-bottom:16px;">在實體空間建立<br><span style="color:var(--green);">隨時可及的心理支持</span></h1>
+          <p class="lead" style="margin-bottom:20px;">搭載 AI 虛擬療癒師的實體互動設備，結合語音對話與聲紋情緒辨識。放置於辦公室、校園、公共空間，讓每個需要的人都能在最近的地方找到支持。</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;">
+            <span class="tag tag-green">語音互動</span>
+            <span class="tag tag-green">多場域適用</span>
+            <span class="tag tag-green">每台月租</span>
+            <span class="tag tag-green">政府採購相容</span>
+          </div>
+          <a href="#" class="btn btn-green btn-lg" onclick="document.getElementById('kiosk-form').scrollIntoView({behavior:'smooth'})">填寫諮詢表單 →</a>
+        </div>
+        <div>
+          <div class="kiosk-visual"><svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></div>
+          <p style="font-size:.75rem;color:var(--text-3);text-align:center;margin-top:8px;">實際產品外觀以交付為準</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <div class="text-center"><p class="overline" style="color:var(--green);">適用場域</p><h2 class="h2" style="margin-top:8px;">四大應用場景</h2></div>
+      <div class="scene-grid" style="margin-top:36px;">
+        <div class="scene-card"><div class="scene-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M8 10h.01M8 14h.01M16 10h.01M16 14h.01"/></svg></div><div class="h4">企業辦公室</div><p class="sm" style="margin-top:4px;">休息區或獨立空間，員工利用休息時間使用</p></div>
+        <div class="scene-card"><div class="scene-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="h4">校園</div><p class="sm" style="margin-top:4px;">減輕校園心理諮商資源不足的壓力</p></div>
+        <div class="scene-card"><div class="scene-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 2 2 7h20z"/></svg></div><div class="h4">公共部門</div><p class="sm" style="margin-top:4px;">衛生所、社福中心、區公所等場域</p></div>
+        <div class="scene-card"><div class="scene-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v4"/><path d="M14 8h-4"/><path d="M14 14h-4"/><path d="M14 18h-4"/><path d="M18 12h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h2"/><path d="M18 22V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v18"/></svg></div><div class="h4">醫療機構</div><p class="sm" style="margin-top:4px;">候診區、員工休息室，病患與醫護皆適用</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container">
+      <div class="text-center"><p class="overline" style="color:var(--green);">計費方式</p><h2 class="h2" style="margin-top:8px;">每台每月租賃，含完整服務</h2></div>
+      <div class="rental-grid">
+        <div class="rental-card"><div class="rental-icon">📦</div><div class="h4" style="font-size:.9rem;">硬體設備</div><p class="sm" style="margin-top:4px;">觸控螢幕主機<br>與專屬外殼</p></div>
+        <div class="rental-card"><div class="rental-icon">💿</div><div class="h4" style="font-size:.9rem;">軟體授權</div><p class="sm" style="margin-top:4px;">AI 療癒引擎<br>持續更新</p></div>
+        <div class="rental-card"><div class="rental-icon">🛠️</div><div class="h4" style="font-size:.9rem;">維護服務</div><p class="sm" style="margin-top:4px;">到場安裝<br>定期維護</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#fff;" id="kiosk-form">
+    <div class="container">
+      <div class="text-center"><p class="overline" style="color:var(--green);">聯繫我們</p><h2 class="h2" style="margin-top:8px;">填寫表單，業務團隊將主動聯繫</h2><p class="sm" style="max-width:440px;margin:6px auto 0;">請留下您的基本資訊與需求，我們將在 1-2 個工作天內回覆。</p></div>
+      <div class="form-box" style="margin-top:28px;">
+        <div class="form-row">
+          <div class="form-group"><label>聯絡人姓名 *</label><input type="text" placeholder="請輸入姓名"></div>
+          <div class="form-group"><label>職稱</label><input type="text" placeholder="例如：IT 主管"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>公司 / 機構名稱 *</label><input type="text" placeholder="公司或機構名稱"></div>
+          <div class="form-group"><label>產業類型</label><select><option value="">請選擇</option><option>企業辦公室</option><option>學校 / 教育機構</option><option>公部門 / 政府機關</option><option>醫療機構</option><option>其他</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>電子郵件 *</label><input type="email" placeholder="name@company.com"></div>
+          <div class="form-group"><label>電話</label><input type="tel" placeholder="02-XXXX-XXXX"></div>
+        </div>
+        <div class="form-group"><label>預計場域與數量</label><input type="text" placeholder="例如：辦公室 2 台、校園 1 台"></div>
+        <div class="form-group"><label>其他需求</label><textarea placeholder="請描述您的需求⋯⋯"></textarea></div>
+        <button class="btn btn-green btn-full btn-lg">送出諮詢表單</button>
+        <p style="text-align:center;font-size:.72rem;color:var(--text-3);margin-top:8px;">1-2 個工作天內回覆 · 資訊嚴格保密</p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end kiosk -->
+
+<!-- ==================== PRICING ==================== -->
+<div class="page" id="page-pricing">
+
+  <div class="pricing-hero">
+    <div class="container" style="max-width:700px;">
+      <p class="overline">方案與定價</p>
+      <h1 class="h1" style="margin-top:8px;">固定年費，用再多也不加價</h1>
+      <p class="lead" style="margin:10px auto 0;">不按人次收費、不怕員工用太多超出預算。所有方案皆含完整服務，依員工規模定價。</p>
+      <div class="pricing-badges">
+        <span class="badge badge-blue"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> 固定年費，不按人次計費</span>
+        <span class="badge badge-green"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg> 用越多，單位成本越低</span>
+        <span class="badge badge-amber"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M8 10h.01M8 14h.01M16 10h.01M16 14h.01"/></svg> 中小企業也負擔得起</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section-sm" style="background:#fff;padding-top:0;">
+    <div class="container">
+
+      <!-- Compare tip -->
+      <div class="compare-tip">
+        <div style="flex:1;min-width:200px;">
+          <div style="font-size:.75rem;font-weight:700;color:#92400e;margin-bottom:4px;">💡 你知道嗎？</div>
+          <div style="font-size:.85rem;color:#78350f;line-height:1.65;">傳統 EAP 按「諮詢人次」收費，員工用越多費用越高，許多企業因此限制使用次數。<br><strong>Here Hear 固定年費，不論員工使用幾次，費用都不會增加。</strong></div>
+        </div>
+        <div style="text-align:center;min-width:180px;">
+          <div style="font-size:.7rem;color:#92400e;">傳統 EAP 每人每次</div>
+          <div style="font-size:1.3rem;font-weight:900;color:#dc2626;text-decoration:line-through;font-family:'Inter',sans-serif;">NT$2,000~5,000</div>
+          <div style="font-size:.7rem;color:#92400e;margin-top:4px;">Here Hear 每人每年最低</div>
+          <div style="font-size:1.3rem;font-weight:900;color:var(--green);font-family:'Inter',sans-serif;">NT$96 起</div>
+        </div>
+      </div>
+
+      <!-- Main 3 price cards — SAME services, different scale -->
+      <div class="price-grid">
+        <!-- S -->
+        <div class="price-card">
+          <div class="price-tier">S 方案</div>
+          <div class="price-range">≤ 50 人</div>
+          <div class="price-amount"><span class="price-curr">NT$</span>18,000<span class="price-per">/年</span></div>
+          <div class="price-monthly">NT$1,500/月</div>
+          <div class="price-unit">≈ 每人每年 NT$360 起，不限使用次數</div>
+          <hr class="price-divider">
+          <ul class="price-features">
+            <li><span class="pf-yes">✓</span>壓力評估（17 題 → 8 型報告）</li>
+            <li><span class="pf-yes">✓</span>AI 療癒夥伴「洋洋」語音互動</li>
+            <li><span class="pf-yes">✓</span>正念觀想 + 個人化洞察報告</li>
+            <li><span class="pf-yes">✓</span>個人週報 Email</li>
+            <li><span class="pf-yes">✓</span>HR 去識別化月報表</li>
+            <li><span class="pf-yes">✓</span>季度壓力重測</li>
+            <li><span class="pf-yes">✓</span>高風險自動轉介機制</li>
+            <li><span class="pf-yes">✓</span>用戶支援</li>
+          </ul>
+          <a href="#" class="btn btn-primary btn-full" onclick="openModal()">開始免費試用</a>
+        </div>
+        <!-- M (popular) -->
+        <div class="price-card popular">
+          <div class="price-popular-badge">最多企業選擇</div>
+          <div class="price-tier">M 方案</div>
+          <div class="price-range">51 - 200 人</div>
+          <div class="price-amount"><span class="price-curr">NT$</span>36,000<span class="price-per">/年</span></div>
+          <div class="price-monthly">NT$3,000/月</div>
+          <div class="price-unit">≈ 每人每年 NT$180 起，不限使用次數</div>
+          <hr class="price-divider">
+          <ul class="price-features">
+            <li><span class="pf-yes">✓</span>壓力評估（17 題 → 8 型報告）</li>
+            <li><span class="pf-yes">✓</span>AI 療癒夥伴「洋洋」語音互動</li>
+            <li><span class="pf-yes">✓</span>正念觀想 + 個人化洞察報告</li>
+            <li><span class="pf-yes">✓</span>個人週報 Email</li>
+            <li><span class="pf-yes">✓</span>HR 去識別化月報表</li>
+            <li><span class="pf-yes">✓</span>季度壓力重測</li>
+            <li><span class="pf-yes">✓</span>高風險自動轉介機制</li>
+            <li><span class="pf-yes">✓</span>優先用戶支援</li>
+          </ul>
+          <a href="#" class="btn btn-primary btn-full" onclick="openModal()">開始免費試用</a>
+        </div>
+        <!-- L -->
+        <div class="price-card">
+          <div class="price-tier">L 方案</div>
+          <div class="price-range">201 - 500 人</div>
+          <div class="price-amount"><span class="price-curr">NT$</span>72,000<span class="price-per">/年</span></div>
+          <div class="price-monthly">NT$6,000/月</div>
+          <div class="price-unit">≈ 每人每年 NT$144 起，不限使用次數</div>
+          <hr class="price-divider">
+          <ul class="price-features">
+            <li><span class="pf-yes">✓</span>壓力評估（17 題 → 8 型報告）</li>
+            <li><span class="pf-yes">✓</span>AI 療癒夥伴「洋洋」語音互動</li>
+            <li><span class="pf-yes">✓</span>正念觀想 + 個人化洞察報告</li>
+            <li><span class="pf-yes">✓</span>個人週報 Email</li>
+            <li><span class="pf-yes">✓</span>HR 去識別化月報表</li>
+            <li><span class="pf-yes">✓</span>季度壓力重測</li>
+            <li><span class="pf-yes">✓</span>高風險自動轉介機制</li>
+            <li><span class="pf-yes">✓</span>專屬帳戶經理</li>
+          </ul>
+          <a href="#" class="btn btn-primary btn-full" onclick="openModal()">開始免費試用</a>
+        </div>
+      </div>
+
+      <!-- XL / XXL / Kiosk -->
+      <div class="price-more">
+        <div class="price-mini">
+          <div class="pm-tier">XL 方案</div>
+          <div class="pm-range">501 - 1,000 人</div>
+          <div class="pm-price">NT$144,000<span style="font-size:.75rem;color:var(--text-3);font-weight:400;">/年</span></div>
+          <div class="pm-monthly">NT$12,000/月 · 專屬帳戶經理</div>
+          <a href="#" class="btn btn-primary btn-sm btn-full" style="margin-top:12px;" onclick="openModal()">開始免費試用</a>
+        </div>
+        <div class="price-mini">
+          <div class="pm-tier">XXL 方案</div>
+          <div class="pm-range">1,001 - 3,000 人</div>
+          <div class="pm-price">NT$288,000<span style="font-size:.75rem;color:var(--text-3);font-weight:400;">/年</span></div>
+          <div class="pm-monthly">NT$24,000/月 · 專屬帳戶經理</div>
+          <a href="#" class="btn btn-primary btn-sm btn-full" style="margin-top:12px;" onclick="openModal()">開始免費試用</a>
+        </div>
+        <div class="price-mini">
+          <div class="pm-tier">智慧心理支持站</div>
+          <div class="pm-range">硬體 + 軟體授權</div>
+          <div class="pm-price" style="font-size:1.05rem;">每台每月租賃</div>
+          <div class="pm-monthly">含設備、軟體、維護</div>
+          <a href="#" class="btn btn-green btn-sm btn-full" style="margin-top:12px;" onclick="showPage('product-kiosk')">洽詢報價</a>
+        </div>
+      </div>
+
+      <!-- Add-ons -->
+      <div class="addons-box">
+        <div class="addons-title">額外加購 · 以下功能可在任何方案基礎上加購</div>
+        <div class="addons-grid">
+          <div class="addon-item">
+            <div class="addon-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div>
+            <div class="addon-name">ESG 年報生成</div>
+            <div class="addon-desc">GRI/SDGs 格式永續報告，直接放入永續報告書</div>
+          </div>
+          <div class="addon-item">
+            <div class="addon-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+            <div class="addon-name">內部系統資料串接</div>
+            <div class="addon-desc">與現有 HR 系統 API 串接整合</div>
+          </div>
+          <div class="addon-item">
+            <div class="addon-icon">🌐</div>
+            <div class="addon-name">客製化網頁入口</div>
+            <div class="addon-desc">企業品牌化專屬登入頁面</div>
+          </div>
+          <div class="addon-item">
+            <div class="addon-icon">🌏</div>
+            <div class="addon-name">跨國員工服務</div>
+            <div class="addon-desc">多語言支援，跨地區部署</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="enterprise-bar">
+        <div>
+          <h3>企業方案 · 3,000+ 人</h3>
+          <p>客製化報價，含所有基礎功能 + 進階企業級服務</p>
+        </div>
+        <div>
+          <div class="ent-features">
+            <span class="ent-feat">ESG 年報生成</span>
+            <span class="ent-feat">內部系統資料串接</span>
+            <span class="ent-feat">客製化網頁入口</span>
+            <span class="ent-feat">自訂報表</span>
+            <span class="ent-feat">跨國員工服務</span>
+          </div>
+          <a href="#" class="btn btn-sm" style="background:var(--amber);color:var(--bg-dark);">聯繫業務團隊 →</a>
+        </div>
+      </div>
+
+      <!-- Calculator -->
+      <div style="text-align:center;margin-top:40px;">
+        <p class="overline">費用試算</p>
+        <h2 class="h2" style="margin-top:6px;">試算你的方案與費用</h2>
+      </div>
+      <div class="calc-box">
+        <div class="calc-label">企業員工人數</div>
+        <input type="range" class="calc-slider" id="empSlider" min="10" max="3000" value="80" oninput="updateCalc()">
+        <div class="calc-range"><span>10 人</span><span style="font-size:1rem;font-weight:700;color:var(--blue);" id="empCount">80 人</span><span>3,000 人</span></div>
+        <div class="calc-result">
+          <div class="cr-plan" id="calcPlan">M 方案（51-200 人）</div>
+          <div class="cr-amount" id="calcAmount">NT$36,000 / 年</div>
+          <div class="cr-detail" id="calcDetail">NT$3,000/月 · 平均每人每年 NT$450</div>
+        </div>
+        <div style="text-align:center;margin-top:16px;"><a href="#" class="btn btn-primary" onclick="openModal()">以此方案申請免費試用 →</a></div>
+      </div>
+
+      <!-- FAQ -->
+      <div style="text-align:center;margin-top:48px;margin-bottom:20px;">
+        <p class="overline">常見問題</p>
+        <h2 class="h2" style="margin-top:6px;">FAQ</h2>
+      </div>
+      <div class="faq-list" style="margin:0 auto;">
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">免費試用期間有什麼限制？<span class="faq-arrow">+</span></div><div class="faq-a">功能與正式版完全相同，無需綁定信用卡。試用結束後若不續約，服務自動停止，不產生任何費用。</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">員工的對話內容公司看得到嗎？<span class="faq-arrow">+</span></div><div class="faq-a">絕對看不到。所有語音對話內容完全加密，HR 只能看到去識別化的統計數據。任何維度低於 5 人時自動隱藏（k-匿名原則）。</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">AI 能處理嚴重的心理危機嗎？<span class="faq-arrow">+</span></div><div class="faq-a">AI 虛擬療癒師採用有結構的引導式對話，搭配聲紋情緒辨識，已通過台北榮總臨床驗證。當偵測到高風險信號時，系統自動啟動轉介機制，即時連結真人專業心理師。</div></div>
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">如何付費？<span class="faq-arrow">+</span></div><div class="faq-a">支持線上信用卡、銀行轉帳及統一發票。企業方案可配合採購流程開立合約與報價單。</div></div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end pricing -->
+
+<!-- ==================== BLOG ==================== -->
+<div class="page" id="page-blog">
+
+  <div class="blog-hero">
+    <div class="container" style="max-width:680px;">
+      <p class="overline">產業觀點</p>
+      <h1 class="h1" style="margin-top:8px;">最新文章與產業觀點</h1>
+      <p class="lead" style="margin:8px auto 0;">職場心理健康的最新趨勢、數據分析與實用指南</p>
+      <div class="filter-bar">
+        <button class="filter-btn active">全部</button>
+        <button class="filter-btn">數據報告</button>
+        <button class="filter-btn">產品知識</button>
+        <button class="filter-btn">經營觀點</button>
+        <button class="filter-btn">留才策略</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="section-sm" style="background:#fff;padding-top:0;">
+    <div class="container">
+      <div class="blog-grid">
+        <div class="blog-card" onclick="showPage('blog')">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#dbeafe,#ede9fe);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg><span class="tag tag-blue bt-tag">數據報告</span></div>
+          <div class="blog-body"><h3>2026 台灣中小企業員工心理健康現況報告</h3><p>87% 台灣員工承受中高度心理健康風險，超過 80% 的企業員工目前沒有任何職場心理健康支持。數據揭露的真相⋯⋯</p><div class="blog-meta">2026.04.01 · 8 分鐘閱讀</div></div>
+        </div>
+        <div class="blog-card" onclick="showPage('blog')">
+          <div class="blog-thumb green-bg"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg><span class="tag tag-green bt-tag">產品知識</span></div>
+          <div class="blog-body"><h3>EAP 是什麼？AI EAP vs 傳統 EAP 完整比較（2026）</h3><p>EAP 員工協助方案完整指南——從定義、運作方式，到 AI-EAP 如何以傳統 1/10 成本、10 倍以上使用率重新定義這個市場⋯⋯</p><div class="blog-meta">2026.03.25 · 12 分鐘閱讀</div></div>
+        </div>
+        <div class="blog-card" onclick="showPage('blog')">
+          <div class="blog-thumb amber-bg"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span class="tag tag-amber bt-tag">經營觀點</span></div>
+          <div class="blog-body"><h3>企業不重視員工心理健康的隱性成本</h3><p>一位月薪 4.5 萬的員工離職，企業實際損失可能高達 27 至 40 萬台幣。出勤主義成本是缺勤的 2-3 倍——一筆你可能從未算過的帳⋯⋯</p><div class="blog-meta">2026.03.18 · 10 分鐘閱讀</div></div>
+        </div>
+        <div class="blog-card" onclick="showPage('blog')">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#fee2e2,#fecaca);"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4-6 16H2"/></svg><span class="tag tag-rose bt-tag">留才策略</span></div>
+          <div class="blog-body"><h3>員工一直離職怎麼辦？中小企業留才實戰指南</h3><p>離職的 5 個隱藏原因，第 3 個最多人忽略——心理健康是離職的第二大原因，僅次於薪資⋯⋯</p><div class="blog-meta">2026.03.15 · 7 分鐘閱讀</div></div>
+        </div>
+        <div class="blog-card" onclick="showPage('blog')">
+          <div class="blog-thumb green-bg"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 15s1.5-2 4-2 4 2 4 2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg><span class="tag tag-green bt-tag">職場健康</span></div>
+          <div class="blog-body"><h3>員工壓力大、常請假？背後的職場心理健康真相</h3><p>73% 的台灣員工在心理健康問題下仍選擇來公司工作——「出勤主義」比缺勤更傷企業⋯⋯</p><div class="blog-meta">2026.03.10 · 6 分鐘閱讀</div></div>
+        </div>
+        <div class="blog-card" onclick="showPage('blog')">
+          <div class="blog-thumb amber-bg"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg><span class="tag tag-amber bt-tag">員工福利</span></div>
+          <div class="blog-body"><h3>中小企業員工福利怎麼做？不加薪也能留人的 6 個方法</h3><p>採購轉換阻力不在價格，NT$18,000/年 = NT$50/天——對 50 人企業幾乎是零門檻，問題在「是否知道你的存在」⋯⋯</p><div class="blog-meta">2026.03.05 · 9 分鐘閱讀</div></div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:28px;">
+        <button class="btn btn-secondary">載入更多文章</button>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="newsletter-box">
+        <h3 style="font-size:1.05rem;">訂閱電子報</h3>
+        <p class="sm" style="margin:4px 0 0;">每兩週收到一篇精選職場心理健康洞察，直接送進您的信箱</p>
+        <div class="nl-input-row">
+          <input type="email" placeholder="請輸入 Email">
+          <button class="btn btn-primary btn-sm">訂閱</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest News -->
+  <section class="section-sm" style="background:var(--bg-2);">
+    <div class="container">
+      <div class="text-center"><p class="overline">最新消息</p><h2 class="h2" style="margin-top:6px;">企業動態</h2></div>
+      <div class="news-list" style="max-width:760px;margin:0 auto;">
+        <div class="news-item">
+          <div class="news-date"><div class="nd-m">APR</div><div class="nd-d">06</div></div>
+          <div class="news-body"><div><span class="tag tag-green" style="margin-bottom:5px;display:inline-flex;">產品更新</span></div><h4>AI-EAP 2.0 正式上線，新增多語言支援與進階 HR 數據儀表板</h4><p>全新版本整合日文、英文對話能力，並提供 HR 更精細的去識別化數據分析功能。</p></div>
+        </div>
+        <div class="news-item">
+          <div class="news-date"><div class="nd-m">MAR</div><div class="nd-d">20</div></div>
+          <div class="news-body"><div><span class="tag tag-blue" style="margin-bottom:5px;display:inline-flex;">媒體報導</span></div><h4>數位時代專訪：「AI 語音療癒如何重新定義企業 EAP」</h4><p>深度專訪探討結構化語音引導 × 聲紋情緒辨識的技術差異化與市場機會。</p></div>
+        </div>
+        <div class="news-item">
+          <div class="news-date"><div class="nd-m">MAR</div><div class="nd-d">05</div></div>
+          <div class="news-body"><div><span class="tag tag-amber" style="margin-bottom:5px;display:inline-flex;">活動</span></div><h4>Here Hear 出席 2026 HR Tech Taiwan 人資科技展</h4><p>歡迎蒞臨體驗 AI-EAP 互動示範與智慧心理支持站實機展示。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end blog -->
+
+<!-- ==================== FAQ ==================== -->
+<div class="page" id="page-faq">
+
+  <section class="hero" style="background:linear-gradient(160deg,var(--bg-2),#fff);text-align:center;padding-bottom:40px;">
+    <div class="container" style="max-width:640px;">
+      <p class="overline">常見問題</p>
+      <h1 class="h1" style="margin-top:8px;">FAQ</h1>
+      <p class="lead" style="margin:8px auto 0;">關於 Here Hear AI-EAP 服務最常見的問題</p>
+    </div>
+  </section>
+
+  <section class="section-sm" style="padding-top:0;background:#fff;">
+    <div class="container" style="max-width:760px;">
+      <div class="faq-list">
+
+        <div class="faq-cat">功能與產品</div>
+
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Here Hear 跟傳統 EAP 有什麼不同？<span class="faq-arrow">+</span></div><div class="faq-a">傳統 EAP 需要預約、要報名，員工怕被公司知道有狀況，使用率普遍不到 3%。Here Hear 讓員工用手機語音匿名對話，不需預約、不登記身份，公司看不到誰用了、說了什麼。加上固定年費、不限次數，HR 可以放心鼓勵全員使用。</div></div>
+
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">AI 療癒師「洋洋」是怎麼運作的？<span class="faq-arrow">+</span></div><div class="faq-a">洋洋採用有結構的引導式對話模型，搭配聲紋情緒辨識技術。對話時 100% 專注傾聽引導，對話結束後系統在正念觀想時間進行後端分析，生成個人化洞察報告。這個結構已通過台北榮總臨床驗證有效。</div></div>
+
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">AI 能處理嚴重的心理危機嗎？<span class="faq-arrow">+</span></div><div class="faq-a">AI 虛擬療癒師採用有結構的引導式對話，已通過台北榮總臨床驗證。當偵測到高風險信號時，系統自動啟動轉介機制，即時連結真人專業心理師，不讓任何人落單。</div></div>
+
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">壓力評估的 8 種壓力型態是什麼？<span class="faq-arrow">+</span></div><div class="faq-a">透過 17 題匿名量表，系統將員工的壓力特徵歸類為 8 種壓力型態（A-H 型），涵蓋工作壓力、人際關係、自我期待、家庭照顧等維度，並以此決定 AI 療癒師的對話方向與內容排程。</div></div>
+
+        <div class="faq-cat" style="padding-top:20px;">隱私與安全</div>
+
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">員工的對話內容公司看得到嗎？<span class="faq-arrow">+</span></div><div class="faq-a">絕對看不到。所有語音對話內容完全加密，HR 只能看到去識別化的統計數據。任何維度低於 5 人時自動隱藏（k-匿名原則），確保個人無法被反推識別。</div></div>
+
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Here Hear 如何保護員工的個人資料？<span class="faq-arrow">+</span></div><div class="faq-a">系統不收集員工真實身份，僅以匿名 ID 儲存對話記錄。所有資料傳輸皆採用加密協定，符合台灣個人資料保護法規範。企業管理者無法存取任何個別員工的對話內容。</div></div>
+
+        <div class="faq-cat" style="padding-top:20px;">方案與費用</div>
+
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">免費試用期間有什麼限制？<span class="faq-arrow">+</span></div><div class="faq-a">功能與正式版完全相同，無需綁定信用卡。試用結束後若不續約，服務自動停止，不產生任何費用。</div></div>
+
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">如何付費？支援哪些付款方式？<span class="faq-arrow">+</span></div><div class="faq-a">支持線上信用卡、銀行轉帳及統一發票。企業方案可配合採購流程開立合約與報價單。</div></div>
+
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">ESG 年報、API 串接、客製化網頁入口如何取得？<span class="faq-arrow">+</span></div><div class="faq-a">這些進階功能為「額外加購」項目，可在任何方案基礎上加購。包含：ESG 年報生成（GRI/SDGs 格式）、內部系統資料串接（HR 系統 API）、客製化網頁入口（企業品牌化登入頁）、跨國員工服務（多語言支援）。請聯繫業務團隊取得報價。</div></div>
+
+        <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">如果公司員工人數成長，可以升級方案嗎？<span class="faq-arrow">+</span></div><div class="faq-a">可以。隨時可以升級至更高規模的方案，費用以年度為基準比例補差價。升級過程完全無縫，員工服務不中斷。</div></div>
+
+      </div>
+
+      <div style="text-align:center;margin-top:40px;">
+        <p class="sm" style="margin-bottom:14px;">還有其他問題？</p>
+        <a href="#" class="btn btn-primary" onclick="showPage('pricing')">查看完整方案與定價 →</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end faq -->
+
+<!-- ==================== HR LOGIN MODAL ==================== -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h3>HR 登入 / 註冊</h3>
+    <p>管理您的 AI-EAP 訂閱、查看服務報表與訂單資訊。</p>
+    <div class="form-group"><label>電子郵件</label><input type="email" placeholder="name@company.com"></div>
+    <div class="form-group"><label>密碼</label><input type="password" placeholder="請輸入密碼"></div>
+    <button class="btn btn-primary btn-full">登入</button>
+    <div style="text-align:center;font-size:.78rem;color:var(--text-3);margin:12px 0;">或</div>
+    <button class="btn btn-secondary btn-full">以 Google 帳號登入</button>
+    <div class="modal-footer">還沒有帳號？<a href="#" onclick="showPage('pricing');closeModal()">申請免費試用</a></div>
+  </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <span class="logo-text"><span class="brand-purple">HereHear</span><span class="brand-green">.AI</span></span>
+        </div>
+        <p>竹謙科技｜國家新創獎得主<br>以結構化語音引導 × 聲紋情緒辨識<br>重新定義企業員工心理健康服務</p>
+      </div>
+      <div class="footer-col">
+        <h4>產品</h4>
+        <a href="#" onclick="showPage('product-saas')">AI-EAP 雲端服務</a>
+        <a href="#" onclick="showPage('product-kiosk')">智慧心理支持站</a>
+        <a href="#" onclick="showPage('pricing')">方案與定價</a>
+        <a href="#" onclick="openModal()">免費試用</a>
+      </div>
+      <div class="footer-col">
+        <h4>資源</h4>
+        <a href="#" onclick="showPage('blog')">產業觀點</a>
+        <a href="#" onclick="showPage('blog')">最新消息</a>
+        <a href="#" onclick="showPage('faq')">FAQ</a>
+        <a href="#">免費壓力評估</a>
+      </div>
+      <div class="footer-col">
+        <h4>公司</h4>
+        <a href="#">關於我們</a>
+        <a href="#">臨床驗證</a>
+        <a href="#">隱私政策</a>
+        <a href="#">服務條款</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Here Hear（竹謙科技）. All rights reserved.</span>
+      <span>service@herehearkk.com</span>
+    </div>
+  </div>
+</footer>
+
+<script is:inline>
+// Page navigation
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const el=document.getElementById('page-'+id);
+  if(el)el.classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  const link=document.querySelector('.nav-links a[data-page="'+id+'"]');
+  if(link)link.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleMobile(){document.getElementById('mobileNav').classList.toggle('open');}
+function openModal(){document.getElementById('loginModal').classList.add('open');}
+function closeModal(){document.getElementById('loginModal').classList.remove('open');}
+document.getElementById('loginModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+// FAQ toggle
+function toggleFaq(el){
+  const a=el.querySelector('.faq-a');
+  const ar=el.querySelector('.faq-arrow');
+  const open=a.style.display==='block';
+  a.style.display=open?'none':'block';
+  ar.textContent=open?'+':'−';
+  ar.style.transform=open?'':'rotate(45deg)';
+}
+
+// Flow tabs
+function switchFlow(tab,btn){
+  document.querySelectorAll('.flow-panel').forEach(p=>p.classList.remove('active'));
+  const panel=document.getElementById('flow-'+tab);
+  if(panel)panel.classList.add('active');
+  document.querySelectorAll('.flow-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Pricing calculator
+function updateCalc(){
+  const n=parseInt(document.getElementById('empSlider').value);
+  document.getElementById('empCount').textContent=n+' 人';
+  let plan,total,monthly,perPerson;
+  if(n<=50){plan='S 方案（≤50 人）';total=18000;monthly=1500;}
+  else if(n<=200){plan='M 方案（51-200 人）';total=36000;monthly=3000;}
+  else if(n<=500){plan='L 方案（201-500 人）';total=72000;monthly=6000;}
+  else if(n<=1000){plan='XL 方案（501-1,000 人）';total=144000;monthly=12000;}
+  else if(n<=3000){plan='XXL 方案（1,001-3,000 人）';total=288000;monthly=24000;}
+  else{plan='企業方案（3,000+ 人）';total=0;monthly=0;}
+  perPerson=n>0&&total>0?Math.round(total/n):0;
+  document.getElementById('calcPlan').textContent=plan;
+  if(total>0){
+    document.getElementById('calcAmount').textContent='NT$'+total.toLocaleString()+' / 年';
+    document.getElementById('calcDetail').textContent='NT$'+monthly.toLocaleString()+'/月 · 平均每人每年 NT$'+perPerson;
+  }else{
+    document.getElementById('calcAmount').textContent='客製化報價';
+    document.getElementById('calcDetail').textContent='請聯繫業務團隊取得專屬報價';
+  }
+}
+
+// Nav scroll effect
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+});
+
+// Filter buttons (blog)
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
