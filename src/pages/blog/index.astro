@@ -1,0 +1,260 @@
+---
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+// Sort by date descending
+const posts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const categories = ['全部', ...new Set(posts.map(p => p.data.category))];
+
+const categoryColors: Record<string, string> = {
+  '數據報告': 'tag-blue',
+  '產品知識': 'tag-green',
+  '經營觀點': 'tag-amber',
+  '留才策略': 'tag-rose',
+  '職場健康': 'tag-green',
+  '員工福利': 'tag-amber',
+};
+
+const categoryGradients: Record<string, string> = {
+  '數據報告': 'linear-gradient(135deg,#dbeafe,#ede9fe)',
+  '產品知識': 'linear-gradient(135deg,#d1fae5,#a7f3d0)',
+  '經營觀點': 'linear-gradient(135deg,#fef3c7,#fde68a)',
+  '留才策略': 'linear-gradient(135deg,#fee2e2,#fecaca)',
+  '職場健康': 'linear-gradient(135deg,#d1fae5,#a7f3d0)',
+  '員工福利': 'linear-gradient(135deg,#fef3c7,#fde68a)',
+};
+
+function formatDate(dateStr: string) {
+  const d = new Date(dateStr);
+  return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+}
+---
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>產業觀點 | Here Hear AI-EAP</title>
+<meta name="description" content="職場心理健康的最新趨勢、數據分析與實用指南。台灣中小企業 HR 必讀的員工心理健康資源。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Noto Sans TC','Inter',system-ui,sans-serif;color:#111827;background:#fff;line-height:1.7;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;transition:all .25s;}
+button{cursor:pointer;border:none;font-family:inherit;}
+
+:root{
+  --blue:#2563EB;--blue-light:#60A5FA;--blue-dark:#1D4ED8;--blue-bg:#EFF6FF;
+  --green:#059669;--green-light:#34D399;--green-bg:#ECFDF5;
+  --amber:#D97706;--amber-bg:#FFFBEB;
+  --rose:#E11D48;--rose-bg:#FFF1F2;
+  --text:#111827;--text-2:#374151;--text-3:#6B7280;--text-4:#9CA3AF;
+  --bg:#FFFFFF;--bg-2:#F9FAFB;--bg-3:#F3F4F6;--bg-dark:#0F172A;
+  --border:#E5E7EB;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.05);
+  --shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);
+  --shadow-md:0 4px 6px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.06);
+  --shadow-lg:0 10px 15px rgba(0,0,0,.07),0 4px 6px rgba(0,0,0,.05);
+  --shadow-xl:0 20px 25px rgba(0,0,0,.07),0 10px 10px rgba(0,0,0,.04);
+  --r:8px;--r-lg:16px;--r-xl:24px;--r-full:9999px;
+  --max-w:1160px;
+  --transition:all .2s ease;
+}
+
+.container{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
+.overline{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);}
+h1,.h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:900;line-height:1.15;letter-spacing:-.03em;color:var(--text);}
+h2,.h2{font-size:clamp(1.6rem,3.5vw,2.25rem);font-weight:800;line-height:1.2;letter-spacing:-.02em;}
+.lead{font-size:1.1rem;color:var(--text-3);line-height:1.75;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:11px 24px;border-radius:var(--r);font-size:.9rem;font-weight:600;transition:var(--transition);letter-spacing:.01em;border:1.5px solid transparent;}
+.btn-primary{background:var(--blue);color:#fff;border-color:var(--blue);}
+.btn-primary:hover{background:var(--blue-dark);}
+.btn-sm{padding:7px 16px;font-size:.82rem;}
+.btn-ghost{background:transparent;color:var(--blue);border-color:transparent;}
+.btn-ghost:hover{background:var(--blue-bg);}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:var(--transition);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:var(--max-w);margin:0 auto;padding:0 24px;}
+.nav-logo{display:flex;align-items:center;gap:8px;}
+.logo-text{font-size:1.25rem;font-weight:800;letter-spacing:-.02em;line-height:1;}
+.brand-green{color:#4CAF50;}
+.brand-purple{color:#7B3FE4;}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-links a{padding:6px 12px;border-radius:var(--r);font-size:.88rem;font-weight:500;color:var(--text-2);transition:var(--transition);}
+.nav-links a:hover,.nav-links a.active{color:var(--blue);background:var(--blue-bg);}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.login-link{font-size:.88rem;font-weight:500;color:var(--text-2);}
+.login-link:hover{color:var(--blue);}
+@media(max-width:900px){.nav-links,.nav-right{display:none;}}
+
+/* HERO */
+.blog-hero{background:linear-gradient(160deg,var(--bg-2),#fff);text-align:center;padding:72px 0 48px;}
+
+/* FILTER */
+.filter-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
+.filter-btn{padding:7px 18px;border-radius:var(--r-full);font-size:.82rem;font-weight:600;background:#fff;color:var(--text-3);border:1.5px solid var(--border);transition:var(--transition);cursor:pointer;}
+.filter-btn:hover{border-color:var(--blue);color:var(--blue);}
+.filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue);}
+
+/* GRID */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px;}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.blog-grid{grid-template-columns:1fr;}}
+
+.blog-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r-xl);overflow:hidden;transition:var(--transition);cursor:pointer;display:flex;flex-direction:column;}
+.blog-card:hover{box-shadow:var(--shadow-xl);border-color:var(--blue);transform:translateY(-3px);}
+.blog-card.hidden{display:none;}
+.blog-thumb{height:110px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:2.5rem;position:relative;}
+.blog-body{padding:16px 18px 20px;display:flex;flex-direction:column;flex:1;}
+.blog-body h3{font-size:.88rem;font-weight:700;line-height:1.5;margin-bottom:6px;color:var(--text);}
+.blog-body p{font-size:.75rem;color:var(--text-3);line-height:1.65;margin-bottom:10px;flex:1;}
+.blog-meta{font-size:.68rem;color:var(--text-4);font-weight:500;}
+.bt-tag{position:absolute;bottom:10px;right:10px;font-size:.65rem;}
+
+/* TAGS */
+.tag{display:inline-flex;align-items:center;padding:2px 8px;border-radius:var(--r-full);font-size:.72rem;font-weight:600;gap:3px;}
+.tag-blue{background:var(--blue-bg);color:var(--blue);}
+.tag-green{background:var(--green-bg);color:var(--green);}
+.tag-amber{background:var(--amber-bg);color:var(--amber);}
+.tag-rose{background:var(--rose-bg);color:var(--rose);}
+
+/* NEWSLETTER */
+.newsletter-box{background:linear-gradient(135deg,var(--blue-bg),#ede9fe);border-radius:var(--r-xl);padding:36px 40px;text-align:center;margin-top:48px;}
+.nl-input-row{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap;}
+.nl-input-row input{padding:10px 16px;border-radius:var(--r);border:1.5px solid var(--border);font-family:inherit;font-size:.88rem;width:280px;max-width:100%;}
+.nl-input-row input:focus{outline:none;border-color:var(--blue);}
+
+/* FOOTER */
+.footer{background:var(--bg-dark);color:rgba(255,255,255,.6);padding:48px 0 32px;}
+.footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;}
+.footer-brand .logo-text{font-size:1.15rem;}
+.footer .brand-green{color:#81C784;}
+.footer .brand-purple{color:#C4B5FD;}
+.footer-copy{text-align:center;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:.78rem;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="logo-text"><span class="brand-green">Here</span><span class="brand-purple">Hear</span><span class="brand-green">.AI</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">首頁</a>
+      <a href="/#product-saas">AI-EAP 服務</a>
+      <a href="/#product-kiosk">智慧心理支持站</a>
+      <a href="/#pricing">方案與定價</a>
+      <a href="/blog" class="active">產業觀點</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a href="/" class="login-link">HR 登入</a>
+      <a href="/" class="btn btn-primary btn-sm">免費試用</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="container" style="max-width:680px;">
+    <p class="overline">產業觀點</p>
+    <h1 class="h1" style="margin-top:8px;">最新文章與產業觀點</h1>
+    <p class="lead" style="margin:8px auto 0;">職場心理健康的最新趨勢、數據分析與實用指南</p>
+    <div class="filter-bar" id="filterBar">
+      {categories.map((cat, i) => (
+        <button class={`filter-btn${i === 0 ? ' active' : ''}`} data-cat={cat}>{cat}</button>
+      ))}
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLES -->
+<section style="background:#fff;padding:0 0 64px;">
+  <div class="container">
+    <div class="blog-grid" id="blogGrid">
+      {posts.map(post => (
+        <a href={`/blog/${post.id}`} class="blog-card" data-category={post.data.category}>
+          <div class="blog-thumb" style={`background:${categoryGradients[post.data.category] ?? 'linear-gradient(135deg,#f3f4f6,#e5e7eb)'}`}>
+            <span class={`tag ${categoryColors[post.data.category] ?? 'tag-blue'} bt-tag`}>{post.data.category}</span>
+          </div>
+          <div class="blog-body">
+            <h3>{post.data.title}</h3>
+            <p>{post.data.excerpt}</p>
+            <div class="blog-meta">{formatDate(post.data.date)} · {post.data.readTime} 分鐘閱讀</div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter-box">
+      <h3 style="font-size:1.05rem;color:var(--text);">訂閱電子報</h3>
+      <p class="lead" style="font-size:.9rem;margin:4px 0 0;">每兩週收到一篇精選職場心理健康洞察，直接送進您的信箱</p>
+      <div class="nl-input-row">
+        <input type="email" placeholder="請輸入 Email">
+        <button class="btn btn-primary btn-sm">訂閱</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text"><span class="brand-green">Here</span><span class="brand-purple">Hear</span><span class="brand-green">.AI</span></span>
+        <p style="margin-top:8px;font-size:.82rem;">企業 AI 心理健康服務平台</p>
+      </div>
+      <div style="display:flex;gap:48px;flex-wrap:wrap;">
+        <div>
+          <p style="font-weight:600;color:rgba(255,255,255,.9);margin-bottom:10px;font-size:.85rem;">產品</p>
+          <div style="display:flex;flex-direction:column;gap:6px;font-size:.82rem;">
+            <a href="/" style="color:rgba(255,255,255,.5);">AI-EAP 服務</a>
+            <a href="/" style="color:rgba(255,255,255,.5);">智慧心理支持站</a>
+            <a href="/" style="color:rgba(255,255,255,.5);">方案與定價</a>
+          </div>
+        </div>
+        <div>
+          <p style="font-weight:600;color:rgba(255,255,255,.9);margin-bottom:10px;font-size:.85rem;">資源</p>
+          <div style="display:flex;flex-direction:column;gap:6px;font-size:.82rem;">
+            <a href="/blog" style="color:rgba(255,255,255,.5);">產業觀點</a>
+            <a href="/" style="color:rgba(255,255,255,.5);">FAQ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 Here Hear AI-EAP. All rights reserved.</div>
+  </div>
+</footer>
+
+<script is:inline>
+  // Filter functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.blog-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      cards.forEach(card => {
+        if (cat === '全部' || card.dataset.category === cat) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
