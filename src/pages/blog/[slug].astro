@@ -238,6 +238,16 @@ button{cursor:pointer;border:none;font-family:inherit;}
       <a href="/" class="btn-cta">預約免費 Demo →</a>
     </div>
 
+    <!-- NEWSLETTER -->
+    <div style="background:var(--bg-2);border-radius:var(--r-xl);padding:32px;text-align:center;margin-top:32px;">
+      <h3 style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px;">📩 訂閱電子報，每兩週收到職場心理健康洞察</h3>
+      <div style="display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap;" id="nlForm">
+        <input type="email" id="nlEmail" placeholder="請輸入 Email" style="padding:10px 16px;border-radius:var(--r);border:1.5px solid var(--border);font-family:inherit;font-size:.88rem;width:260px;max-width:100%;outline:none;">
+        <button onclick="handleSubscribe()" id="nlBtn" style="background:var(--blue);color:#fff;padding:10px 20px;border-radius:var(--r);font-size:.88rem;font-weight:600;border:none;cursor:pointer;">訂閱</button>
+      </div>
+      <p id="nlMsg" style="margin-top:10px;font-size:.85rem;display:none;"></p>
+    </div>
+
     <!-- BACK -->
     <a href="/blog" class="back-link">
       ← 返回所有文章
@@ -245,6 +255,52 @@ button{cursor:pointer;border:none;font-family:inherit;}
 
   </div>
 </main>
+
+<script is:inline>
+  async function handleSubscribe() {
+    const email = document.getElementById('nlEmail').value.trim();
+    const btn = document.getElementById('nlBtn');
+    const msg = document.getElementById('nlMsg');
+    if (!email || !email.includes('@')) {
+      msg.textContent = '請輸入有效的 Email 地址';
+      msg.style.color = '#E11D48';
+      msg.style.display = 'block';
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = '處理中...';
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        document.getElementById('nlForm').style.display = 'none';
+        msg.textContent = data.message;
+        msg.style.color = '#059669';
+        msg.style.fontWeight = '600';
+        msg.style.display = 'block';
+      } else {
+        msg.textContent = data.error || '訂閱失敗，請稍後再試';
+        msg.style.color = '#E11D48';
+        msg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = '訂閱';
+      }
+    } catch (e) {
+      msg.textContent = '網路錯誤，請稍後再試';
+      msg.style.color = '#E11D48';
+      msg.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = '訂閱';
+    }
+  }
+  document.getElementById('nlEmail').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') handleSubscribe();
+  });
+</script>
 
 <!-- FOOTER -->
 <footer class="footer">
