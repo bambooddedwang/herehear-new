@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'Here Hear 官網 <onboarding@resend.dev>',
-        to: ['service@herehearkk.com'],
+        to: ['lynia.huang@bamboodd.com'],
         reply_to: email,
         subject: `【預約 Demo】${company} - ${name}`,
         html: `
