@@ -325,6 +325,29 @@ h4,.h4{font-size:1rem;font-weight:700;line-height:1.4;}
 .modal-footer{text-align:center;font-size:.82rem;color:var(--text-3);margin-top:14px;}
 .modal-footer a{color:var(--blue);font-weight:600;}
 
+/* Demo Modal */
+.demo-modal{max-width:500px;}
+.demo-modal-header{background:linear-gradient(135deg,var(--blue) 0%,#7C3AED 100%);margin:-32px -32px 24px;padding:28px 32px 24px;border-radius:var(--r-xl) var(--r-xl) 0 0;}
+.demo-modal-header h3{color:#fff;font-size:1.25rem;font-weight:800;margin-bottom:4px;}
+.demo-modal-header p{color:rgba(255,255,255,.75);font-size:.83rem;margin:0;}
+.demo-trust{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;}
+.demo-trust-item{display:flex;align-items:center;gap:5px;font-size:.75rem;color:var(--text-3);font-weight:500;}
+.demo-input{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--r);font-size:.88rem;font-family:inherit;color:var(--text);background:#fff;transition:border-color .2s;box-sizing:border-box;}
+.demo-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08);}
+.demo-input::placeholder{color:var(--text-4);}
+.demo-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.demo-field{margin-bottom:14px;}
+.demo-field label{display:block;font-size:.78rem;font-weight:600;color:var(--text-2);margin-bottom:5px;}
+.demo-field label span{color:#E11D48;}
+.demo-submit{width:100%;padding:13px;background:linear-gradient(135deg,var(--blue),#7C3AED);color:#fff;border:none;border-radius:var(--r);font-size:.95rem;font-weight:700;cursor:pointer;transition:opacity .2s;margin-top:4px;}
+.demo-submit:hover{opacity:.9;}
+.demo-submit:disabled{opacity:.6;cursor:not-allowed;}
+.demo-success{text-align:center;padding:16px 0;}
+.demo-success-icon{font-size:2.5rem;margin-bottom:12px;}
+.demo-success h4{font-size:1.05rem;font-weight:800;color:var(--text);margin-bottom:6px;}
+.demo-success p{font-size:.85rem;color:var(--text-3);line-height:1.7;}
+.demo-msg{font-size:.82rem;margin-top:10px;text-align:center;}
+
 /* Form elements */
 .form-group{margin-bottom:14px;}
 .form-group label{display:block;font-size:.82rem;font-weight:600;color:var(--text-2);margin-bottom:5px;}
@@ -843,8 +866,8 @@ h4,.h4{font-size:1rem;font-weight:700;line-height:1.4;}
       <h2>準備為企業導入 AI-EAP？</h2>
       <p>一個月免費試用 · 線上自助開通 · NT$18,000/年起</p>
       <div class="cta-actions">
-        <a href="#" class="btn btn-lg" style="background:#fff;color:var(--blue);" onclick="showPage('pricing')">查看方案與定價</a>
-        <a href="#" class="btn btn-lg" style="border:1.5px solid rgba(255,255,255,.4);color:#fff;" onclick="showPage('product-kiosk')">洽詢智慧心理支持站</a>
+        <button class="btn btn-lg" style="background:#fff;color:var(--blue);" onclick="openDemoModal()">預約免費 Demo →</button>
+        <a href="#" class="btn btn-lg" style="border:1.5px solid rgba(255,255,255,.4);color:#fff;" onclick="showPage('pricing')">查看方案與定價</a>
       </div>
     </div>
   </div>
@@ -958,7 +981,8 @@ h4,.h4{font-size:1rem;font-weight:700;line-height:1.4;}
       <h2>開始為你的團隊導入 AI-EAP</h2>
       <p>線上自助申請 · 一個月免費試用 · 50 人以下 NT$18,000/年</p>
       <div class="cta-actions">
-        <a href="#" class="btn btn-lg" style="background:#fff;color:var(--blue);" onclick="showPage('pricing')">查看定價方案 →</a>
+        <button class="btn btn-lg" style="background:#fff;color:var(--blue);" onclick="openDemoModal()">預約免費 Demo →</button>
+        <a href="#" class="btn btn-lg" style="border:1.5px solid rgba(255,255,255,.4);color:#fff;" onclick="showPage('pricing')">查看定價方案</a>
       </div>
     </div>
   </div>
@@ -1395,6 +1419,68 @@ h4,.h4{font-size:1rem;font-weight:700;line-height:1.4;}
   </div>
 </div>
 
+<!-- ==================== DEMO MODAL ==================== -->
+<div class="modal-overlay" id="demoModal">
+  <div class="modal demo-modal">
+    <button class="modal-close" onclick="closeDemoModal()">×</button>
+    <div id="demoFormWrap">
+      <div class="demo-modal-header">
+        <h3>預約免費 Demo</h3>
+        <p>30 分鐘線上展示，了解 AI-EAP 如何為您的企業服務</p>
+      </div>
+      <div class="demo-trust">
+        <div class="demo-trust-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>免費・無壓力</div>
+        <div class="demo-trust-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>1-2 工作天內回覆</div>
+        <div class="demo-trust-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>資訊嚴格保密</div>
+      </div>
+      <div class="demo-row">
+        <div class="demo-field">
+          <label>您的姓名 <span>*</span></label>
+          <input class="demo-input" id="demoName" type="text" placeholder="王小明">
+        </div>
+        <div class="demo-field">
+          <label>公司名稱 <span>*</span></label>
+          <input class="demo-input" id="demoCompany" type="text" placeholder="竹謙科技">
+        </div>
+      </div>
+      <div class="demo-field">
+        <label>公司 Email <span>*</span></label>
+        <input class="demo-input" id="demoEmail" type="email" placeholder="name@company.com">
+      </div>
+      <div class="demo-row">
+        <div class="demo-field">
+          <label>員工人數</label>
+          <select class="demo-input" id="demoSize">
+            <option value="">請選擇</option>
+            <option>10 人以下</option>
+            <option>11–50 人</option>
+            <option>51–200 人</option>
+            <option>201–500 人</option>
+            <option>500 人以上</option>
+          </select>
+        </div>
+        <div class="demo-field">
+          <label>方便聯繫時間</label>
+          <select class="demo-input" id="demoTime">
+            <option value="">請選擇</option>
+            <option>平日上午（9–12 點）</option>
+            <option>平日下午（13–17 點）</option>
+            <option>平日傍晚（17–19 點）</option>
+            <option>彈性配合</option>
+          </select>
+        </div>
+      </div>
+      <button class="demo-submit" id="demoSubmitBtn" onclick="submitDemo()">立即預約 Demo →</button>
+      <p class="demo-msg" id="demoMsg"></p>
+    </div>
+    <div id="demoSuccess" style="display:none;" class="demo-success">
+      <div class="demo-success-icon">🎉</div>
+      <h4>預約成功！感謝您的興趣</h4>
+      <p>我們的業務團隊將在 <strong>1-2 個工作天內</strong>與您聯繫，<br>安排最適合您的 Demo 時間。</p>
+    </div>
+  </div>
+</div>
+
 <!-- ==================== FOOTER ==================== -->
 <footer class="footer">
   <div class="container">
@@ -1503,6 +1589,65 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
     this.classList.add('active');
   });
 });
+
+// Demo Modal
+function openDemoModal(){
+  document.getElementById('demoModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeDemoModal(){
+  document.getElementById('demoModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('demoModal').addEventListener('click',function(e){if(e.target===this)closeDemoModal();});
+
+async function submitDemo(){
+  const name=document.getElementById('demoName').value.trim();
+  const company=document.getElementById('demoCompany').value.trim();
+  const email=document.getElementById('demoEmail').value.trim();
+  const size=document.getElementById('demoSize').value;
+  const time=document.getElementById('demoTime').value;
+  const msgEl=document.getElementById('demoMsg');
+  const btn=document.getElementById('demoSubmitBtn');
+
+  if(!name||!company||!email){
+    msgEl.style.color='#E11D48';
+    msgEl.textContent='請填寫姓名、公司名稱與 Email';
+    return;
+  }
+  if(!email.includes('@')){
+    msgEl.style.color='#E11D48';
+    msgEl.textContent='請輸入有效的 Email';
+    return;
+  }
+
+  btn.disabled=true;
+  btn.textContent='送出中...';
+  msgEl.textContent='';
+
+  try{
+    const res=await fetch('/api/demo',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,company,email,size,time})
+    });
+    const data=await res.json();
+    if(data.success){
+      document.getElementById('demoFormWrap').style.display='none';
+      document.getElementById('demoSuccess').style.display='block';
+    }else{
+      msgEl.style.color='#E11D48';
+      msgEl.textContent=data.error||'送出失敗，請稍後再試';
+      btn.disabled=false;
+      btn.textContent='立即預約 Demo →';
+    }
+  }catch(e){
+    msgEl.style.color='#E11D48';
+    msgEl.textContent='網路錯誤，請稍後再試';
+    btn.disabled=false;
+    btn.textContent='立即預約 Demo →';
+  }
+}
 
 // Newsletter subscription (homepage)
 async function homeSubscribe(){
